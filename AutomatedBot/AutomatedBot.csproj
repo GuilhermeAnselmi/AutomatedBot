@@ -9,11 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Control\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="KlusterG.AutoGui" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 </Project>

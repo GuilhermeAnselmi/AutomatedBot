@@ -54,8 +54,8 @@
             this.adicionarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.exceçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.executarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.executarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +105,7 @@
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
             this.listarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.listarToolStripMenuItem.Text = "Listar";
+            this.listarToolStripMenuItem.Click += new System.EventHandler(this.ListAllRoutines);
             // 
             // timeoutToolStripMenuItem
             // 
@@ -206,7 +207,7 @@
             this.toolStripSeparator2,
             this.executarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(120, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 120);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // rotinasToolStripMenuItem
@@ -215,21 +216,22 @@
             this.adicionarToolStripMenuItem,
             this.listarToolStripMenuItem2});
             this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
-            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rotinasToolStripMenuItem.Text = "Rotina";
             // 
             // adicionarToolStripMenuItem
             // 
             this.adicionarToolStripMenuItem.Name = "adicionarToolStripMenuItem";
-            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.adicionarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.adicionarToolStripMenuItem.Text = "Adicionar";
             this.adicionarToolStripMenuItem.Click += new System.EventHandler(this.OpenAddRoutine);
             // 
             // listarToolStripMenuItem2
             // 
             this.listarToolStripMenuItem2.Name = "listarToolStripMenuItem2";
-            this.listarToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
+            this.listarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.listarToolStripMenuItem2.Text = "Listar";
+            this.listarToolStripMenuItem2.Click += new System.EventHandler(this.ListAllRoutines);
             // 
             // timeoutToolStripMenuItem1
             // 
@@ -237,7 +239,7 @@
             this.adicionarToolStripMenuItem1,
             this.listarToolStripMenuItem3});
             this.timeoutToolStripMenuItem1.Name = "timeoutToolStripMenuItem1";
-            this.timeoutToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.timeoutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.timeoutToolStripMenuItem1.Text = "Timeout";
             // 
             // adicionarToolStripMenuItem1
@@ -255,19 +257,19 @@
             // exceçõesToolStripMenuItem
             // 
             this.exceçõesToolStripMenuItem.Name = "exceçõesToolStripMenuItem";
-            this.exceçõesToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.exceçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exceçõesToolStripMenuItem.Text = "Exceção";
-            // 
-            // executarToolStripMenuItem
-            // 
-            this.executarToolStripMenuItem.Name = "executarToolStripMenuItem";
-            this.executarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.executarToolStripMenuItem.Text = "Executar";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // executarToolStripMenuItem
+            // 
+            this.executarToolStripMenuItem.Name = "executarToolStripMenuItem";
+            this.executarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.executarToolStripMenuItem.Text = "Executar";
             // 
             // Index
             // 

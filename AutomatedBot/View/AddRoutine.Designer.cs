@@ -95,10 +95,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddRoutine);
             this.Controls.Add(this.txtName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddRoutine";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar Rotina";
             this.ResumeLayout(false);

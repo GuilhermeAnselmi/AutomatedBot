@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using AutomatedBot.Control.Data;
 
 namespace AutomatedBot.View
 {
@@ -19,7 +11,11 @@ namespace AutomatedBot.View
 
         private void Add(object sender, EventArgs e)
         {
-            MessageBox.Show(txtName.Text, "DEVELOPER", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            JsonDb json = new JsonDb(txtName.Text);
+
+            json.Create();
+
+            this.Close();
         }
 
         private void Done(object sender, EventArgs e)
