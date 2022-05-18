@@ -11,11 +11,16 @@ namespace AutomatedBot.View
 
         private void Add(object sender, EventArgs e)
         {
-            JsonDb json = new JsonDb(txtName.Text);
+            var response = JsonDb.Create(txtName.Text);
 
-            json.Create();
-
-            this.Close();
+            if (response.Item1)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(response.Item2, "Não Criado", MessageBoxButtons.OK);
+            }
         }
 
         private void Done(object sender, EventArgs e)

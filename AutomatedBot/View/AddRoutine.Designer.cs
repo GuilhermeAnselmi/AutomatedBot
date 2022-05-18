@@ -31,7 +31,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnAddRoutine = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDone = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -63,15 +63,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Adicionar Rotina";
             // 
-            // button2
+            // btnDone
             // 
-            this.button2.Location = new System.Drawing.Point(36, 133);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Voltar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Done);
+            this.btnDone.Location = new System.Drawing.Point(36, 133);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(75, 23);
+            this.btnDone.TabIndex = 3;
+            this.btnDone.Text = "Voltar";
+            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.Done);
             // 
             // label2
             // 
@@ -85,13 +85,14 @@
             // 
             // AddRoutine
             // 
+            this.AcceptButton = this.btnAddRoutine;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(256, 179);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnDone);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddRoutine);
             this.Controls.Add(this.txtName);
@@ -112,7 +113,7 @@
         private TextBox txtName;
         private Button btnAddRoutine;
         private Label label1;
-        private Button button2;
+        private Button btnDone;
         private Label label2;
     }
 }

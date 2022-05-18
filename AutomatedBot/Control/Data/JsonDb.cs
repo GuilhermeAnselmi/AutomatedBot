@@ -5,36 +5,28 @@ namespace AutomatedBot.Control.Data
 {
     internal class JsonDb
     {
-        private readonly string Path = Directory.GetCurrentDirectory() + "\\FilesJson\\";
-        private string AllPath;
-        public string Name;
-        public string FileName;
+        private static readonly string Path = Directory.GetCurrentDirectory() + "\\FilesJson\\";
 
-        public JsonDb(string name = null)
-        {
-            Name = name;
-            FileName = name + ".json";
-            AllPath = Path + FileName;
-
-            if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
-        }
-
-        public Tuple<bool, string> Create()
+        public static Tuple<bool, string> Create(string name)
         {
             try
             {
-                if (FileName != null)
+                string fileName = name.Replace(" ", "") + ".json";
+
+                if (!Directory.Exists(Path)) Directory.CreateDirectory(Path);
+
+                if (!string.IsNullOrEmpty(name))
                 {
-                    if (!File.Exists(AllPath))
+                    if (!File.Exists(Path + fileName))
                     {
-                        File.Create(AllPath).Close();
+                        File.Create(Path + fileName).Close();
 
                         Routine routine = new Routine();
 
-                        routine.Name = Name;
-                        routine.FileName = FileName;
+                        routine.Name = name;
+                        routine.FileName = fileName;
 
-                        File.WriteAllText(AllPath, JsonConvert.SerializeObject(routine));
+                        File.WriteAllText(Path + fileName, JsonConvert.SerializeObject(routine));
 
                         return new Tuple<bool, string>(true, null);
                     }
@@ -52,6 +44,33 @@ namespace AutomatedBot.Control.Data
             {
                 return new Tuple<bool, string>(false, $"Error: {ex}");
             }
+        }
+
+        public static List<Routine> GetAllRoutines()
+        {
+            List<Routine> routines = new List<Routine>();
+
+            string[] files = Directory.GetFiles(Path);
+
+            foreach (string file in files)
+            {
+                Routine routine = new Routine();
+
+                routine = JsonConvert.DeserializeObject<Routine>(File.ReadAllText(file));
+
+                routines.Add(routine);
+            }
+
+            return routines;
+        }
+
+        public static Routine GetRoutine(string name)
+        {
+            List<Routine> routines = GetAllRoutines();
+
+            Routine routine = routines.Where<Routine>(x => x.Name == name).First();
+
+            return routine;
         }
     }
 }
