@@ -38,7 +38,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckbMoveMouse = new System.Windows.Forms.CheckBox();
             this.txtPosX = new System.Windows.Forms.NumericUpDown();
             this.txtPosY = new System.Windows.Forms.NumericUpDown();
             this.txtR = new System.Windows.Forms.NumericUpDown();
@@ -52,6 +52,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDone = new System.Windows.Forms.Button();
+            this.ckbSimpleClick = new System.Windows.Forms.CheckBox();
+            this.txtWrite = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbbKeyOne = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbbKeyTwo = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cbbKeyThree = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtR)).BeginInit();
@@ -122,7 +131,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(225, 104);
+            this.label5.Location = new System.Drawing.Point(434, 104);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 15);
             this.label5.TabIndex = 7;
@@ -133,7 +142,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(315, 104);
+            this.label6.Location = new System.Drawing.Point(524, 104);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(16, 15);
             this.label6.TabIndex = 9;
@@ -144,7 +153,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(405, 104);
+            this.label7.Location = new System.Drawing.Point(614, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 15);
             this.label7.TabIndex = 11;
@@ -155,23 +164,23 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(495, 104);
+            this.label8.Location = new System.Drawing.Point(704, 104);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(15, 15);
             this.label8.TabIndex = 13;
             this.label8.Text = "A";
             // 
-            // checkBox1
+            // ckbMoveMouse
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(12, 166);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(103, 19);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "Mover Mouse";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ckbMoveMouse.AutoSize = true;
+            this.ckbMoveMouse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ckbMoveMouse.ForeColor = System.Drawing.Color.White;
+            this.ckbMoveMouse.Location = new System.Drawing.Point(12, 166);
+            this.ckbMoveMouse.Name = "ckbMoveMouse";
+            this.ckbMoveMouse.Size = new System.Drawing.Size(103, 19);
+            this.ckbMoveMouse.TabIndex = 8;
+            this.ckbMoveMouse.Text = "Mover Mouse";
+            this.ckbMoveMouse.UseVisualStyleBackColor = true;
             // 
             // txtPosX
             // 
@@ -183,7 +192,7 @@
             0});
             this.txtPosX.Name = "txtPosX";
             this.txtPosX.Size = new System.Drawing.Size(84, 23);
-            this.txtPosX.TabIndex = 16;
+            this.txtPosX.TabIndex = 1;
             // 
             // txtPosY
             // 
@@ -195,11 +204,11 @@
             0});
             this.txtPosY.Name = "txtPosY";
             this.txtPosY.Size = new System.Drawing.Size(84, 23);
-            this.txtPosY.TabIndex = 17;
+            this.txtPosY.TabIndex = 2;
             // 
             // txtR
             // 
-            this.txtR.Location = new System.Drawing.Point(225, 122);
+            this.txtR.Location = new System.Drawing.Point(434, 122);
             this.txtR.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -207,11 +216,11 @@
             0});
             this.txtR.Name = "txtR";
             this.txtR.Size = new System.Drawing.Size(84, 23);
-            this.txtR.TabIndex = 18;
+            this.txtR.TabIndex = 4;
             // 
             // txtG
             // 
-            this.txtG.Location = new System.Drawing.Point(315, 122);
+            this.txtG.Location = new System.Drawing.Point(524, 122);
             this.txtG.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -219,11 +228,11 @@
             0});
             this.txtG.Name = "txtG";
             this.txtG.Size = new System.Drawing.Size(84, 23);
-            this.txtG.TabIndex = 19;
+            this.txtG.TabIndex = 5;
             // 
             // txtB
             // 
-            this.txtB.Location = new System.Drawing.Point(405, 122);
+            this.txtB.Location = new System.Drawing.Point(614, 122);
             this.txtB.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -231,11 +240,11 @@
             0});
             this.txtB.Name = "txtB";
             this.txtB.Size = new System.Drawing.Size(84, 23);
-            this.txtB.TabIndex = 20;
+            this.txtB.TabIndex = 6;
             // 
             // txtA
             // 
-            this.txtA.Location = new System.Drawing.Point(495, 122);
+            this.txtA.Location = new System.Drawing.Point(704, 122);
             this.txtA.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -243,7 +252,7 @@
             0});
             this.txtA.Name = "txtA";
             this.txtA.Size = new System.Drawing.Size(84, 23);
-            this.txtA.TabIndex = 21;
+            this.txtA.TabIndex = 7;
             // 
             // txtWait
             // 
@@ -255,7 +264,7 @@
             0});
             this.txtWait.Name = "txtWait";
             this.txtWait.Size = new System.Drawing.Size(84, 23);
-            this.txtWait.TabIndex = 22;
+            this.txtWait.TabIndex = 10;
             // 
             // label9
             // 
@@ -270,20 +279,23 @@
             // 
             // btnGetAllValues
             // 
-            this.btnGetAllValues.Location = new System.Drawing.Point(478, 163);
+            this.btnGetAllValues.Location = new System.Drawing.Point(225, 122);
             this.btnGetAllValues.Name = "btnGetAllValues";
-            this.btnGetAllValues.Size = new System.Drawing.Size(101, 23);
-            this.btnGetAllValues.TabIndex = 24;
+            this.btnGetAllValues.Size = new System.Drawing.Size(174, 23);
+            this.btnGetAllValues.TabIndex = 3;
             this.btnGetAllValues.Text = "Pegar Valores";
             this.btnGetAllValues.UseVisualStyleBackColor = true;
+            this.btnGetAllValues.Click += new System.EventHandler(this.GetValues);
             // 
             // cbbFunction
             // 
+            this.cbbFunction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbFunction.FormattingEnabled = true;
             this.cbbFunction.Location = new System.Drawing.Point(225, 242);
             this.cbbFunction.Name = "cbbFunction";
             this.cbbFunction.Size = new System.Drawing.Size(174, 23);
-            this.cbbFunction.TabIndex = 25;
+            this.cbbFunction.TabIndex = 11;
+            this.cbbFunction.SelectedValueChanged += new System.EventHandler(this.ItemChanged);
             // 
             // label10
             // 
@@ -301,7 +313,7 @@
             this.btnSave.Location = new System.Drawing.Point(656, 621);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(132, 23);
-            this.btnSave.TabIndex = 27;
+            this.btnSave.TabIndex = 51;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
@@ -310,10 +322,100 @@
             this.btnDone.Location = new System.Drawing.Point(12, 621);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(132, 23);
-            this.btnDone.TabIndex = 28;
+            this.btnDone.TabIndex = 50;
             this.btnDone.Text = "Voltar";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.Done);
+            // 
+            // ckbSimpleClick
+            // 
+            this.ckbSimpleClick.AutoSize = true;
+            this.ckbSimpleClick.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ckbSimpleClick.ForeColor = System.Drawing.Color.White;
+            this.ckbSimpleClick.Location = new System.Drawing.Point(12, 191);
+            this.ckbSimpleClick.Name = "ckbSimpleClick";
+            this.ckbSimpleClick.Size = new System.Drawing.Size(106, 19);
+            this.ckbSimpleClick.TabIndex = 9;
+            this.ckbSimpleClick.Text = "Clique Simples";
+            this.ckbSimpleClick.UseVisualStyleBackColor = true;
+            // 
+            // txtWrite
+            // 
+            this.txtWrite.Location = new System.Drawing.Point(12, 315);
+            this.txtWrite.Name = "txtWrite";
+            this.txtWrite.Size = new System.Drawing.Size(174, 23);
+            this.txtWrite.TabIndex = 52;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 297);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 15);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "Texto para Escrita";
+            // 
+            // cbbKeyOne
+            // 
+            this.cbbKeyOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKeyOne.FormattingEnabled = true;
+            this.cbbKeyOne.Location = new System.Drawing.Point(434, 242);
+            this.cbbKeyOne.Name = "cbbKeyOne";
+            this.cbbKeyOne.Size = new System.Drawing.Size(106, 23);
+            this.cbbKeyOne.TabIndex = 54;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(434, 224);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 15);
+            this.label11.TabIndex = 55;
+            this.label11.Text = "Tecla 1";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(558, 224);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(45, 15);
+            this.label12.TabIndex = 57;
+            this.label12.Text = "Tecla 2";
+            // 
+            // cbbKeyTwo
+            // 
+            this.cbbKeyTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKeyTwo.FormattingEnabled = true;
+            this.cbbKeyTwo.Location = new System.Drawing.Point(558, 242);
+            this.cbbKeyTwo.Name = "cbbKeyTwo";
+            this.cbbKeyTwo.Size = new System.Drawing.Size(106, 23);
+            this.cbbKeyTwo.TabIndex = 56;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(682, 224);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(45, 15);
+            this.label13.TabIndex = 59;
+            this.label13.Text = "Tecla 3";
+            // 
+            // cbbKeyThree
+            // 
+            this.cbbKeyThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKeyThree.FormattingEnabled = true;
+            this.cbbKeyThree.Location = new System.Drawing.Point(682, 242);
+            this.cbbKeyThree.Name = "cbbKeyThree";
+            this.cbbKeyThree.Size = new System.Drawing.Size(106, 23);
+            this.cbbKeyThree.TabIndex = 58;
             // 
             // PanelRoutine
             // 
@@ -322,6 +424,15 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.cbbKeyThree);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.cbbKeyTwo);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.cbbKeyOne);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtWrite);
+            this.Controls.Add(this.ckbSimpleClick);
             this.Controls.Add(this.btnDone);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label10);
@@ -335,7 +446,7 @@
             this.Controls.Add(this.txtR);
             this.Controls.Add(this.txtPosY);
             this.Controls.Add(this.txtPosX);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.ckbMoveMouse);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -375,7 +486,7 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private CheckBox checkBox1;
+        private CheckBox ckbMoveMouse;
         private NumericUpDown txtPosX;
         private NumericUpDown txtPosY;
         private NumericUpDown txtR;
@@ -389,5 +500,14 @@
         private Label label10;
         private Button btnSave;
         private Button btnDone;
+        private CheckBox ckbSimpleClick;
+        private TextBox txtWrite;
+        private Label label2;
+        private ComboBox cbbKeyOne;
+        private Label label11;
+        private Label label12;
+        private ComboBox cbbKeyTwo;
+        private Label label13;
+        private ComboBox cbbKeyThree;
     }
 }
