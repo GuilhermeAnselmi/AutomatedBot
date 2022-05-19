@@ -61,6 +61,7 @@
             this.cbbKeyTwo = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbbKeyThree = new System.Windows.Forms.ComboBox();
+            this.lblGetValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtR)).BeginInit();
@@ -87,7 +88,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(130, 12);
+            this.label1.Location = new System.Drawing.Point(153, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(500, 40);
             this.label1.TabIndex = 1;
@@ -175,7 +176,7 @@
             this.ckbMoveMouse.AutoSize = true;
             this.ckbMoveMouse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ckbMoveMouse.ForeColor = System.Drawing.Color.White;
-            this.ckbMoveMouse.Location = new System.Drawing.Point(12, 166);
+            this.ckbMoveMouse.Location = new System.Drawing.Point(12, 180);
             this.ckbMoveMouse.Name = "ckbMoveMouse";
             this.ckbMoveMouse.Size = new System.Drawing.Size(103, 19);
             this.ckbMoveMouse.TabIndex = 8;
@@ -256,7 +257,7 @@
             // 
             // txtWait
             // 
-            this.txtWait.Location = new System.Drawing.Point(12, 242);
+            this.txtWait.Location = new System.Drawing.Point(12, 264);
             this.txtWait.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -271,7 +272,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 224);
+            this.label9.Location = new System.Drawing.Point(12, 246);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 15);
             this.label9.TabIndex = 23;
@@ -279,7 +280,7 @@
             // 
             // btnGetAllValues
             // 
-            this.btnGetAllValues.Location = new System.Drawing.Point(225, 122);
+            this.btnGetAllValues.Location = new System.Drawing.Point(12, 151);
             this.btnGetAllValues.Name = "btnGetAllValues";
             this.btnGetAllValues.Size = new System.Drawing.Size(174, 23);
             this.btnGetAllValues.TabIndex = 3;
@@ -291,7 +292,7 @@
             // 
             this.cbbFunction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbFunction.FormattingEnabled = true;
-            this.cbbFunction.Location = new System.Drawing.Point(225, 242);
+            this.cbbFunction.Location = new System.Drawing.Point(225, 122);
             this.cbbFunction.Name = "cbbFunction";
             this.cbbFunction.Size = new System.Drawing.Size(174, 23);
             this.cbbFunction.TabIndex = 11;
@@ -302,7 +303,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(225, 224);
+            this.label10.Location = new System.Drawing.Point(225, 104);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 15);
             this.label10.TabIndex = 26;
@@ -332,7 +333,7 @@
             this.ckbSimpleClick.AutoSize = true;
             this.ckbSimpleClick.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ckbSimpleClick.ForeColor = System.Drawing.Color.White;
-            this.ckbSimpleClick.Location = new System.Drawing.Point(12, 191);
+            this.ckbSimpleClick.Location = new System.Drawing.Point(12, 205);
             this.ckbSimpleClick.Name = "ckbSimpleClick";
             this.ckbSimpleClick.Size = new System.Drawing.Size(106, 19);
             this.ckbSimpleClick.TabIndex = 9;
@@ -341,7 +342,7 @@
             // 
             // txtWrite
             // 
-            this.txtWrite.Location = new System.Drawing.Point(12, 315);
+            this.txtWrite.Location = new System.Drawing.Point(12, 337);
             this.txtWrite.Name = "txtWrite";
             this.txtWrite.Size = new System.Drawing.Size(174, 23);
             this.txtWrite.TabIndex = 52;
@@ -351,7 +352,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 297);
+            this.label2.Location = new System.Drawing.Point(12, 319);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 53;
@@ -361,7 +362,7 @@
             // 
             this.cbbKeyOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKeyOne.FormattingEnabled = true;
-            this.cbbKeyOne.Location = new System.Drawing.Point(434, 242);
+            this.cbbKeyOne.Location = new System.Drawing.Point(434, 264);
             this.cbbKeyOne.Name = "cbbKeyOne";
             this.cbbKeyOne.Size = new System.Drawing.Size(106, 23);
             this.cbbKeyOne.TabIndex = 54;
@@ -371,7 +372,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(434, 224);
+            this.label11.Location = new System.Drawing.Point(434, 246);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(45, 15);
             this.label11.TabIndex = 55;
@@ -382,7 +383,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(558, 224);
+            this.label12.Location = new System.Drawing.Point(558, 246);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(45, 15);
             this.label12.TabIndex = 57;
@@ -392,7 +393,7 @@
             // 
             this.cbbKeyTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKeyTwo.FormattingEnabled = true;
-            this.cbbKeyTwo.Location = new System.Drawing.Point(558, 242);
+            this.cbbKeyTwo.Location = new System.Drawing.Point(558, 264);
             this.cbbKeyTwo.Name = "cbbKeyTwo";
             this.cbbKeyTwo.Size = new System.Drawing.Size(106, 23);
             this.cbbKeyTwo.TabIndex = 56;
@@ -402,7 +403,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(682, 224);
+            this.label13.Location = new System.Drawing.Point(682, 246);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(45, 15);
             this.label13.TabIndex = 59;
@@ -412,10 +413,22 @@
             // 
             this.cbbKeyThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbKeyThree.FormattingEnabled = true;
-            this.cbbKeyThree.Location = new System.Drawing.Point(682, 242);
+            this.cbbKeyThree.Location = new System.Drawing.Point(682, 264);
             this.cbbKeyThree.Name = "cbbKeyThree";
             this.cbbKeyThree.Size = new System.Drawing.Size(106, 23);
             this.cbbKeyThree.TabIndex = 58;
+            // 
+            // lblGetValue
+            // 
+            this.lblGetValue.AutoSize = true;
+            this.lblGetValue.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGetValue.ForeColor = System.Drawing.Color.White;
+            this.lblGetValue.Location = new System.Drawing.Point(172, 564);
+            this.lblGetValue.Name = "lblGetValue";
+            this.lblGetValue.Size = new System.Drawing.Size(457, 80);
+            this.lblGetValue.TabIndex = 60;
+            this.lblGetValue.Text = "Pressione K para gravar posição\r\nPressione O para voltar";
+            this.lblGetValue.Visible = false;
             // 
             // PanelRoutine
             // 
@@ -424,6 +437,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.lblGetValue);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cbbKeyThree);
             this.Controls.Add(this.label12);
@@ -509,5 +523,6 @@
         private ComboBox cbbKeyTwo;
         private Label label13;
         private ComboBox cbbKeyThree;
+        private Label lblGetValue;
     }
 }

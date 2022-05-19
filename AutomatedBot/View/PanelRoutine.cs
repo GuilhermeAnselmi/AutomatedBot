@@ -1,4 +1,5 @@
 ﻿using AutomatedBot.Model;
+using KlusterG.AutoGui;
 
 namespace AutomatedBot.View
 {
@@ -46,12 +47,54 @@ namespace AutomatedBot.View
 
         private void GetValues(object sender, EventArgs e)
         {
-            Form form = new GetValues();
-            form.Show();
-            form.Closed += (s, args) => this.Enabled = true;
-            form.BringToFront();
-            form.TopMost = true;
-            this.Enabled = false;
+            lblGetValue.Visible = true;
+
+            MessageBox.Show("Pressione K para gravar posição\nPressione O para voltar", "Pegar Valores do Cursor", MessageBoxButtons.OK);
+
+            while (true)
+            {
+                if (Exec.GetKeyPress().Item2 == "K")
+                {
+                    break;
+                }
+            }
+
+            Mouse mouse = Exec.GetCursorPosition();
+
+            txtPosX.Text = mouse.X.ToString();
+            txtPosY.Text = mouse.Y.ToString();
+
+            txtR.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+            txtG.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+            txtB.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+            txtA.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+
+            lblGetValue.Visible = false;
+
+            //Form form = new GetValues();
+            //form.Show();
+            //form.Closed += (s, args) => this.Enabled = true;
+            //form.BringToFront();
+            //form.TopMost = true;
+            //this.Enabled = false;
+
+            //ReadKeyboardKeys();
+
+            //form.Close();
+        }
+
+        private async Task ReadKeyboardKeys()
+        {
+            while (true)
+            {
+                if (Exec.GetKeyPress().Item2 == "K")
+                {
+                    break;
+                }
+            }
+
+            txtPosX.Text = Exec.GetCursorPosition().X.ToString();
+            txtPosY.Text = Exec.GetCursorPosition().Y.ToString();
         }
 
         private void ItemChanged(object sender, EventArgs e)
