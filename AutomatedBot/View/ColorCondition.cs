@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AutomatedBot.View
 {
-    public partial class GetValues : Form
+    public partial class ColorCondition : Form
     {
-        public GetValues()
+        public ColorCondition()
         {
             InitializeComponent();
         }

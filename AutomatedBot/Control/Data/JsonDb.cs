@@ -1,4 +1,4 @@
-﻿using AutomatedBot.Model;
+﻿using AutomatedBot.Engine.Model;
 using Newtonsoft.Json;
 
 namespace AutomatedBot.Control.Data

@@ -1,6 +1,6 @@
 ﻿using KlusterG.AutoGui;
 
-namespace AutomatedBot.Model
+namespace AutomatedBot.Engine.Model
 {
     public class Routine
     {

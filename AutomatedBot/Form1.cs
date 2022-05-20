@@ -1,5 +1,5 @@
 using AutomatedBot.Control.Data;
-using AutomatedBot.Model;
+using AutomatedBot.Engine.Model;
 
 namespace AutomatedBot
 {

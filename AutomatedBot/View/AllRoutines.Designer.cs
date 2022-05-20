@@ -30,6 +30,7 @@
         {
             this.lstAllRoutines = new System.Windows.Forms.ListBox();
             this.btnOpenRoutine = new System.Windows.Forms.Button();
+            this.btnParamInicialization = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstAllRoutines
@@ -56,6 +57,17 @@
             this.btnOpenRoutine.UseVisualStyleBackColor = true;
             this.btnOpenRoutine.Click += new System.EventHandler(this.OpenRoutine);
             // 
+            // btnParamInicialization
+            // 
+            this.btnParamInicialization.Enabled = false;
+            this.btnParamInicialization.Location = new System.Drawing.Point(12, 25);
+            this.btnParamInicialization.Name = "btnParamInicialization";
+            this.btnParamInicialization.Size = new System.Drawing.Size(199, 23);
+            this.btnParamInicialization.TabIndex = 2;
+            this.btnParamInicialization.Text = "Definir Parametros de Inicialização";
+            this.btnParamInicialization.UseVisualStyleBackColor = true;
+            this.btnParamInicialization.Click += new System.EventHandler(this.OpenParamInicialization);
+            // 
             // AllRoutines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -63,6 +75,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(384, 561);
+            this.Controls.Add(this.btnParamInicialization);
             this.Controls.Add(this.btnOpenRoutine);
             this.Controls.Add(this.lstAllRoutines);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -80,5 +93,6 @@
 
         private ListBox lstAllRoutines;
         private Button btnOpenRoutine;
+        private Button btnParamInicialization;
     }
 }

@@ -18,6 +18,22 @@ namespace AutomatedBot.Model
             new Tuple<int, string>(5, "Soltar teclas"),
             new Tuple<int, string>(6, "Verif. cor e aguardar"),
             new Tuple<int, string>(7, "Verif. cor e chamar rotina"),
+            new Tuple<int, string>(8, "Condição"),
+        };
+
+        public static readonly string[] Expression =
+        {
+            "-",
+            "E",
+            "OU",
+        };
+
+        public static readonly string[] Operators =
+        {
+            "Igual",
+            "Diferente",
+            "Maior que",
+            "Menor que",
         };
 
         public static readonly string[] Keys =

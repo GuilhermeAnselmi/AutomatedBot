@@ -1,5 +1,5 @@
 ﻿using AutomatedBot.Control.Data;
-using AutomatedBot.Model;
+using AutomatedBot.Engine.Model;
 
 namespace AutomatedBot.View
 {
@@ -32,19 +32,32 @@ namespace AutomatedBot.View
             form.Show();
         }
 
+        private void OpenParamInicialization(object sender, EventArgs e)
+        {
+            Form form = new ParamInicialization(JsonDb.GetRoutine(lstAllRoutines.SelectedItem.ToString()));
+            form.Show();
+            form.Closed += (s, args) => this.Enabled = true;
+            form.BringToFront();
+            form.TopMost = true;
+            this.Enabled = false;
+        }
+
         private void SelectedRoutine(object sender, EventArgs e)
         {
             if (lstAllRoutines.SelectedItems.Count < 1)
             {
                 btnOpenRoutine.Enabled = false;
+                btnParamInicialization.Enabled = false;
             }
             else if (lstAllRoutines.SelectedItems.Count == 1)
             {
                 btnOpenRoutine.Enabled = true;
+                btnParamInicialization.Enabled = true;
             }
             else if (lstAllRoutines.SelectedItems.Count > 1)
             {
                 btnOpenRoutine.Enabled = false;
+                btnParamInicialization.Enabled = false;
 
                 MessageBox.Show("Pode selecionar apenas 1 item", "Erro", MessageBoxButtons.OK);
             }
