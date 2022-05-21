@@ -18,6 +18,8 @@ namespace AutomatedBot.Engine.Model
         public PixelColor PColor { get; set; }
         public List<WaitColorsCondition> ColorsCondition { get; set; }
         public List<Condition> Conditions { get; set; }
+        public string NextStageTrue { get; set; }
+        public string NextStageFalse { get; set; }
         public string CommandLine { get; set; }
     }
 }

@@ -46,7 +46,6 @@ namespace AutomatedBot.Model
             "TAB",
             "CAPSLOCK",
             "ALT",
-            "ALT GR",
             "WIN",
             "ESC",
             "BACKSPACE",

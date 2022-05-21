@@ -425,40 +425,44 @@ namespace AutomatedBot.View
             bool success = true;
             string alert = "";
 
-            StructureStage ss = new StructureStage(txtStageName.Text, txtComments.Text, int.Parse(txtPosX.Text),
-                        int.Parse(txtPosY.Text), ckbMoveMouse.Checked);
+            string content = "";
+
+            StructureStage ss = new StructureStage(_routine, txtStageName.Text, txtComments.Text, int.Parse(txtPosX.Text),
+                        int.Parse(txtPosY.Text), ckbMoveMouse.Checked, int.Parse(txtWait.Text));
 
             switch (cbbFunction.SelectedIndex)
             {
                 case 0:
-                    ss.SimpleClick(ckbSimpleClick.Checked, int.Parse(txtWait.Text));
+                    ss.SimpleClick(ckbSimpleClick.Checked);
                     break;
 
                 case 1:
-                    ss.RightClick(int.Parse(txtWait.Text));
+                    ss.RightClick();
                     break;
 
                 case 2:
-                    ss.DoubleClick(int.Parse(txtWait.Text));
+                    ss.DoubleClick();
                     break;
 
                 case 3:
-                    ss.Write(ckbSimpleClick.Checked, txtWrite.Text, int.Parse(txtWait.Text));
+                    content = cbbValueInput.SelectedIndex > 0 ? cbbValueInput.SelectedText : txtWrite.Text;
+
+                    ss.Write(ckbSimpleClick.Checked, content);
                     break;
 
                 case 4:
                     ss.ClickKey(ckbSimpleClick.Checked, cbbKeyOne.SelectedIndex, cbbKeyTwo.SelectedIndex, 
-                        cbbKeyThree.SelectedIndex, int.Parse(txtWait.Text));
+                        cbbKeyThree.SelectedIndex);
                     break;
 
                 case 5:
                     ss.PressKey(ckbSimpleClick.Checked, cbbKeyOne.SelectedIndex, cbbKeyTwo.SelectedIndex,
-                        cbbKeyThree.SelectedIndex, int.Parse(txtWait.Text));
+                        cbbKeyThree.SelectedIndex);
                     break;
 
                 case 6:
                     ss.ReleaseKey(ckbSimpleClick.Checked, cbbKeyOne.SelectedIndex, cbbKeyTwo.SelectedIndex,
-                        cbbKeyThree.SelectedIndex, int.Parse(txtWait.Text));
+                        cbbKeyThree.SelectedIndex);
                     break;
 
                 case 7:
@@ -468,7 +472,7 @@ namespace AutomatedBot.View
                     pc.B = byte.Parse(txtB.Value.ToString());
                     pc.A = byte.Parse(txtA.Value.ToString());
 
-                    ss.WaitColor(pc, int.Parse(txtWait.Text));
+                    ss.WaitColor(pc);
                     break;
 
                 case 8:
@@ -480,7 +484,7 @@ namespace AutomatedBot.View
                     {
                         waitColors = JsonConvert.DeserializeObject<List<WaitColorsCondition>>(response.Item2);
 
-                        ss.WaitColorCondition(waitColors, int.Parse(txtWait.Text));
+                        ss.WaitColorCondition(waitColors);
                     }
                     else
                     {
@@ -500,9 +504,9 @@ namespace AutomatedBot.View
                         conditions.Add(new Condition()
                         {
                             Key = cbbConditionKeyOne.SelectedText,
-                            Operator = cbbOperatorOne.SelectedText,
+                            Operator = cbbOperatorOne.SelectedIndex,
                             Value = txtValueOne.Text,
-                            LogicalOperator = cbbLogicalOperatorOne.SelectedText,
+                            LogicalOperator = cbbLogicalOperatorOne.SelectedIndex,
                         });
 
                         if (ckbConditionTwo.Checked)
@@ -513,11 +517,11 @@ namespace AutomatedBot.View
                                 conditions.Add(new Condition()
                                 {
                                     Key = cbbConditionKeyTwo.SelectedText,
-                                    Operator = cbbOperatorTwo.SelectedText,
+                                    Operator = cbbOperatorTwo.SelectedIndex,
                                     Value = txtValueTwo.Text,
                                 });
 
-                                ss.Condition(conditions, cbbNextStageTrue.SelectedText, int.Parse(txtWait.Text));
+                                ss.Condition(conditions, cbbNextStageTrue.SelectedText, cbbNextStageFalse.SelectedText);
                             }
                             else
                             {
@@ -527,7 +531,7 @@ namespace AutomatedBot.View
                         }
                         else
                         {
-                            ss.Condition(conditions, cbbNextStageTrue.SelectedText, int.Parse(txtWait.Text));
+                            ss.Condition(conditions, cbbNextStageTrue.SelectedText, cbbNextStageFalse.SelectedText);
                         }
                     }
                     else
@@ -539,7 +543,9 @@ namespace AutomatedBot.View
                     break;
 
                 case 10:
-                    ss.CommandLine(txtWrite.Text, int.Parse(txtWait.Text));
+                    content = cbbValueInput.SelectedIndex > 0 ? cbbValueInput.SelectedText : txtWrite.Text;
+
+                    ss.CommandLine(content);
                     break;
             }
 
