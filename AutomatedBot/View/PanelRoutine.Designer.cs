@@ -63,22 +63,16 @@
             this.cbbKeyThree = new System.Windows.Forms.ComboBox();
             this.lblGetValue = new System.Windows.Forms.Label();
             this.pnlCondition = new System.Windows.Forms.Panel();
-            this.cbbExpressionThree = new System.Windows.Forms.ComboBox();
-            this.cbbExpressionTwo = new System.Windows.Forms.ComboBox();
-            this.cbbExpressionOne = new System.Windows.Forms.ComboBox();
-            this.cbbValueFour = new System.Windows.Forms.TextBox();
-            this.cbbOperatorFour = new System.Windows.Forms.ComboBox();
-            this.cbbConditionKeyFour = new System.Windows.Forms.ComboBox();
-            this.cbbValueThree = new System.Windows.Forms.TextBox();
-            this.cbbOperatorThree = new System.Windows.Forms.ComboBox();
-            this.cbbConditionKeyThree = new System.Windows.Forms.ComboBox();
-            this.cbbValueTwo = new System.Windows.Forms.TextBox();
+            this.ckbConditionTwo = new System.Windows.Forms.CheckBox();
+            this.ckbConditionOne = new System.Windows.Forms.CheckBox();
+            this.cbbLogicalOperatorOne = new System.Windows.Forms.ComboBox();
+            this.txtValueTwo = new System.Windows.Forms.TextBox();
             this.cbbOperatorTwo = new System.Windows.Forms.ComboBox();
             this.cbbConditionKeyTwo = new System.Windows.Forms.ComboBox();
-            this.cbbValueOne = new System.Windows.Forms.TextBox();
+            this.txtValueOne = new System.Windows.Forms.TextBox();
             this.cbbOperatorOne = new System.Windows.Forms.ComboBox();
             this.cbbConditionKeyOne = new System.Windows.Forms.ComboBox();
-            this.cbbNextStage = new System.Windows.Forms.ComboBox();
+            this.cbbNextStageTrue = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnColorCondition = new System.Windows.Forms.Button();
             this.txtStageName = new System.Windows.Forms.TextBox();
@@ -89,6 +83,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.btnUnselectedList = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cbbNextStageFalse = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtR)).BeginInit();
@@ -355,6 +352,7 @@
             this.btnSave.TabIndex = 51;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.SaveStage);
             // 
             // btnDone
             // 
@@ -380,6 +378,7 @@
             // 
             // txtWrite
             // 
+            this.txtWrite.Enabled = false;
             this.txtWrite.Location = new System.Drawing.Point(12, 337);
             this.txtWrite.Name = "txtWrite";
             this.txtWrite.Size = new System.Drawing.Size(174, 23);
@@ -471,116 +470,63 @@
             // pnlCondition
             // 
             this.pnlCondition.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCondition.Controls.Add(this.cbbExpressionThree);
-            this.pnlCondition.Controls.Add(this.cbbExpressionTwo);
-            this.pnlCondition.Controls.Add(this.cbbExpressionOne);
-            this.pnlCondition.Controls.Add(this.cbbValueFour);
-            this.pnlCondition.Controls.Add(this.cbbOperatorFour);
-            this.pnlCondition.Controls.Add(this.cbbConditionKeyFour);
-            this.pnlCondition.Controls.Add(this.cbbValueThree);
-            this.pnlCondition.Controls.Add(this.cbbOperatorThree);
-            this.pnlCondition.Controls.Add(this.cbbConditionKeyThree);
-            this.pnlCondition.Controls.Add(this.cbbValueTwo);
+            this.pnlCondition.Controls.Add(this.ckbConditionTwo);
+            this.pnlCondition.Controls.Add(this.ckbConditionOne);
+            this.pnlCondition.Controls.Add(this.cbbLogicalOperatorOne);
+            this.pnlCondition.Controls.Add(this.txtValueTwo);
             this.pnlCondition.Controls.Add(this.cbbOperatorTwo);
             this.pnlCondition.Controls.Add(this.cbbConditionKeyTwo);
-            this.pnlCondition.Controls.Add(this.cbbValueOne);
+            this.pnlCondition.Controls.Add(this.txtValueOne);
             this.pnlCondition.Controls.Add(this.cbbOperatorOne);
             this.pnlCondition.Controls.Add(this.cbbConditionKeyOne);
             this.pnlCondition.Enabled = false;
-            this.pnlCondition.Location = new System.Drawing.Point(356, 319);
+            this.pnlCondition.Location = new System.Drawing.Point(331, 337);
             this.pnlCondition.Name = "pnlCondition";
-            this.pnlCondition.Size = new System.Drawing.Size(432, 119);
+            this.pnlCondition.Size = new System.Drawing.Size(457, 61);
             this.pnlCondition.TabIndex = 61;
             // 
-            // cbbExpressionThree
+            // ckbConditionTwo
             // 
-            this.cbbExpressionThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbExpressionThree.FormattingEnabled = true;
-            this.cbbExpressionThree.Location = new System.Drawing.Point(355, 61);
-            this.cbbExpressionThree.Name = "cbbExpressionThree";
-            this.cbbExpressionThree.Size = new System.Drawing.Size(72, 23);
-            this.cbbExpressionThree.TabIndex = 14;
+            this.ckbConditionTwo.AutoSize = true;
+            this.ckbConditionTwo.Location = new System.Drawing.Point(5, 37);
+            this.ckbConditionTwo.Name = "ckbConditionTwo";
+            this.ckbConditionTwo.Size = new System.Drawing.Size(15, 14);
+            this.ckbConditionTwo.TabIndex = 15;
+            this.ckbConditionTwo.UseVisualStyleBackColor = true;
             // 
-            // cbbExpressionTwo
+            // ckbConditionOne
             // 
-            this.cbbExpressionTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbExpressionTwo.FormattingEnabled = true;
-            this.cbbExpressionTwo.Location = new System.Drawing.Point(355, 32);
-            this.cbbExpressionTwo.Name = "cbbExpressionTwo";
-            this.cbbExpressionTwo.Size = new System.Drawing.Size(72, 23);
-            this.cbbExpressionTwo.TabIndex = 13;
+            this.ckbConditionOne.AutoSize = true;
+            this.ckbConditionOne.Checked = true;
+            this.ckbConditionOne.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckbConditionOne.Enabled = false;
+            this.ckbConditionOne.Location = new System.Drawing.Point(5, 8);
+            this.ckbConditionOne.Name = "ckbConditionOne";
+            this.ckbConditionOne.Size = new System.Drawing.Size(15, 14);
+            this.ckbConditionOne.TabIndex = 14;
+            this.ckbConditionOne.UseVisualStyleBackColor = true;
             // 
-            // cbbExpressionOne
+            // cbbLogicalOperatorOne
             // 
-            this.cbbExpressionOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbExpressionOne.FormattingEnabled = true;
-            this.cbbExpressionOne.Location = new System.Drawing.Point(355, 3);
-            this.cbbExpressionOne.Name = "cbbExpressionOne";
-            this.cbbExpressionOne.Size = new System.Drawing.Size(72, 23);
-            this.cbbExpressionOne.TabIndex = 12;
+            this.cbbLogicalOperatorOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbLogicalOperatorOne.FormattingEnabled = true;
+            this.cbbLogicalOperatorOne.Location = new System.Drawing.Point(378, 4);
+            this.cbbLogicalOperatorOne.Name = "cbbLogicalOperatorOne";
+            this.cbbLogicalOperatorOne.Size = new System.Drawing.Size(72, 23);
+            this.cbbLogicalOperatorOne.TabIndex = 12;
             // 
-            // cbbValueFour
+            // txtValueTwo
             // 
-            this.cbbValueFour.Location = new System.Drawing.Point(249, 90);
-            this.cbbValueFour.Name = "cbbValueFour";
-            this.cbbValueFour.Size = new System.Drawing.Size(100, 23);
-            this.cbbValueFour.TabIndex = 11;
-            // 
-            // cbbOperatorFour
-            // 
-            this.cbbOperatorFour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbOperatorFour.FormattingEnabled = true;
-            this.cbbOperatorFour.Location = new System.Drawing.Point(130, 90);
-            this.cbbOperatorFour.Name = "cbbOperatorFour";
-            this.cbbOperatorFour.Size = new System.Drawing.Size(113, 23);
-            this.cbbOperatorFour.TabIndex = 10;
-            // 
-            // cbbConditionKeyFour
-            // 
-            this.cbbConditionKeyFour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbConditionKeyFour.FormattingEnabled = true;
-            this.cbbConditionKeyFour.Location = new System.Drawing.Point(3, 90);
-            this.cbbConditionKeyFour.Name = "cbbConditionKeyFour";
-            this.cbbConditionKeyFour.Size = new System.Drawing.Size(121, 23);
-            this.cbbConditionKeyFour.TabIndex = 9;
-            // 
-            // cbbValueThree
-            // 
-            this.cbbValueThree.Location = new System.Drawing.Point(249, 61);
-            this.cbbValueThree.Name = "cbbValueThree";
-            this.cbbValueThree.Size = new System.Drawing.Size(100, 23);
-            this.cbbValueThree.TabIndex = 8;
-            // 
-            // cbbOperatorThree
-            // 
-            this.cbbOperatorThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbOperatorThree.FormattingEnabled = true;
-            this.cbbOperatorThree.Location = new System.Drawing.Point(130, 61);
-            this.cbbOperatorThree.Name = "cbbOperatorThree";
-            this.cbbOperatorThree.Size = new System.Drawing.Size(113, 23);
-            this.cbbOperatorThree.TabIndex = 7;
-            // 
-            // cbbConditionKeyThree
-            // 
-            this.cbbConditionKeyThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbConditionKeyThree.FormattingEnabled = true;
-            this.cbbConditionKeyThree.Location = new System.Drawing.Point(3, 61);
-            this.cbbConditionKeyThree.Name = "cbbConditionKeyThree";
-            this.cbbConditionKeyThree.Size = new System.Drawing.Size(121, 23);
-            this.cbbConditionKeyThree.TabIndex = 6;
-            // 
-            // cbbValueTwo
-            // 
-            this.cbbValueTwo.Location = new System.Drawing.Point(249, 32);
-            this.cbbValueTwo.Name = "cbbValueTwo";
-            this.cbbValueTwo.Size = new System.Drawing.Size(100, 23);
-            this.cbbValueTwo.TabIndex = 5;
+            this.txtValueTwo.Location = new System.Drawing.Point(272, 33);
+            this.txtValueTwo.Name = "txtValueTwo";
+            this.txtValueTwo.Size = new System.Drawing.Size(100, 23);
+            this.txtValueTwo.TabIndex = 5;
             // 
             // cbbOperatorTwo
             // 
             this.cbbOperatorTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbOperatorTwo.FormattingEnabled = true;
-            this.cbbOperatorTwo.Location = new System.Drawing.Point(130, 32);
+            this.cbbOperatorTwo.Location = new System.Drawing.Point(153, 33);
             this.cbbOperatorTwo.Name = "cbbOperatorTwo";
             this.cbbOperatorTwo.Size = new System.Drawing.Size(113, 23);
             this.cbbOperatorTwo.TabIndex = 4;
@@ -589,23 +535,23 @@
             // 
             this.cbbConditionKeyTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbConditionKeyTwo.FormattingEnabled = true;
-            this.cbbConditionKeyTwo.Location = new System.Drawing.Point(3, 32);
+            this.cbbConditionKeyTwo.Location = new System.Drawing.Point(26, 33);
             this.cbbConditionKeyTwo.Name = "cbbConditionKeyTwo";
             this.cbbConditionKeyTwo.Size = new System.Drawing.Size(121, 23);
             this.cbbConditionKeyTwo.TabIndex = 3;
             // 
-            // cbbValueOne
+            // txtValueOne
             // 
-            this.cbbValueOne.Location = new System.Drawing.Point(249, 3);
-            this.cbbValueOne.Name = "cbbValueOne";
-            this.cbbValueOne.Size = new System.Drawing.Size(100, 23);
-            this.cbbValueOne.TabIndex = 2;
+            this.txtValueOne.Location = new System.Drawing.Point(272, 4);
+            this.txtValueOne.Name = "txtValueOne";
+            this.txtValueOne.Size = new System.Drawing.Size(100, 23);
+            this.txtValueOne.TabIndex = 2;
             // 
             // cbbOperatorOne
             // 
             this.cbbOperatorOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbOperatorOne.FormattingEnabled = true;
-            this.cbbOperatorOne.Location = new System.Drawing.Point(130, 3);
+            this.cbbOperatorOne.Location = new System.Drawing.Point(153, 4);
             this.cbbOperatorOne.Name = "cbbOperatorOne";
             this.cbbOperatorOne.Size = new System.Drawing.Size(113, 23);
             this.cbbOperatorOne.TabIndex = 1;
@@ -614,31 +560,31 @@
             // 
             this.cbbConditionKeyOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbConditionKeyOne.FormattingEnabled = true;
-            this.cbbConditionKeyOne.Location = new System.Drawing.Point(3, 3);
+            this.cbbConditionKeyOne.Location = new System.Drawing.Point(26, 4);
             this.cbbConditionKeyOne.Name = "cbbConditionKeyOne";
             this.cbbConditionKeyOne.Size = new System.Drawing.Size(121, 23);
             this.cbbConditionKeyOne.TabIndex = 0;
             // 
-            // cbbNextStage
+            // cbbNextStageTrue
             // 
-            this.cbbNextStage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNextStage.Enabled = false;
-            this.cbbNextStage.FormattingEnabled = true;
-            this.cbbNextStage.Location = new System.Drawing.Point(12, 415);
-            this.cbbNextStage.Name = "cbbNextStage";
-            this.cbbNextStage.Size = new System.Drawing.Size(174, 23);
-            this.cbbNextStage.TabIndex = 62;
+            this.cbbNextStageTrue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbNextStageTrue.Enabled = false;
+            this.cbbNextStageTrue.FormattingEnabled = true;
+            this.cbbNextStageTrue.Location = new System.Drawing.Point(614, 434);
+            this.cbbNextStageTrue.Name = "cbbNextStageTrue";
+            this.cbbNextStageTrue.Size = new System.Drawing.Size(174, 23);
+            this.cbbNextStageTrue.TabIndex = 62;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(13, 397);
+            this.label14.Location = new System.Drawing.Point(615, 416);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(86, 15);
+            this.label14.Size = new System.Drawing.Size(105, 15);
             this.label14.TabIndex = 63;
-            this.label14.Text = "Próxima Etapa";
+            this.label14.Text = "Se for verdadeiro";
             // 
             // btnColorCondition
             // 
@@ -665,9 +611,9 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(12, 475);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(91, 15);
+            this.label15.Size = new System.Drawing.Size(90, 15);
             this.label15.TabIndex = 66;
-            this.label15.Text = "Nome do Etapa";
+            this.label15.Text = "Nome da Etapa";
             // 
             // txtComments
             // 
@@ -693,7 +639,7 @@
             this.cbbValueInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbValueInput.Enabled = false;
             this.cbbValueInput.FormattingEnabled = true;
-            this.cbbValueInput.Location = new System.Drawing.Point(192, 337);
+            this.cbbValueInput.Location = new System.Drawing.Point(12, 384);
             this.cbbValueInput.Name = "cbbValueInput";
             this.cbbValueInput.Size = new System.Drawing.Size(158, 23);
             this.cbbValueInput.TabIndex = 69;
@@ -704,7 +650,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(192, 319);
+            this.label17.Location = new System.Drawing.Point(12, 366);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(97, 15);
             this.label17.TabIndex = 70;
@@ -728,6 +674,38 @@
             this.btnRemove.Text = "Excluir";
             this.btnRemove.UseVisualStyleBackColor = true;
             // 
+            // btnUnselectedList
+            // 
+            this.btnUnselectedList.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnUnselectedList.Location = new System.Drawing.Point(756, 42);
+            this.btnUnselectedList.Name = "btnUnselectedList";
+            this.btnUnselectedList.Size = new System.Drawing.Size(32, 30);
+            this.btnUnselectedList.TabIndex = 73;
+            this.btnUnselectedList.Text = "-";
+            this.btnUnselectedList.UseVisualStyleBackColor = true;
+            this.btnUnselectedList.Click += new System.EventHandler(this.UnselectedList);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(332, 416);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(70, 15);
+            this.label18.TabIndex = 75;
+            this.label18.Text = "Se for falso";
+            // 
+            // cbbNextStageFalse
+            // 
+            this.cbbNextStageFalse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbNextStageFalse.Enabled = false;
+            this.cbbNextStageFalse.FormattingEnabled = true;
+            this.cbbNextStageFalse.Location = new System.Drawing.Point(331, 434);
+            this.cbbNextStageFalse.Name = "cbbNextStageFalse";
+            this.cbbNextStageFalse.Size = new System.Drawing.Size(174, 23);
+            this.cbbNextStageFalse.TabIndex = 74;
+            // 
             // PanelRoutine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -735,6 +713,9 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.cbbNextStageFalse);
+            this.Controls.Add(this.btnUnselectedList);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label17);
@@ -745,7 +726,7 @@
             this.Controls.Add(this.txtStageName);
             this.Controls.Add(this.btnColorCondition);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.cbbNextStage);
+            this.Controls.Add(this.cbbNextStageTrue);
             this.Controls.Add(this.pnlCondition);
             this.Controls.Add(this.lblGetValue);
             this.Controls.Add(this.label13);
@@ -839,20 +820,12 @@
         private Panel pnlCondition;
         private ComboBox cbbOperatorOne;
         private ComboBox cbbConditionKeyOne;
-        private TextBox cbbValueOne;
-        private TextBox cbbValueFour;
-        private ComboBox cbbOperatorFour;
-        private ComboBox cbbConditionKeyFour;
-        private TextBox cbbValueThree;
-        private ComboBox cbbOperatorThree;
-        private ComboBox cbbConditionKeyThree;
-        private TextBox cbbValueTwo;
+        private TextBox txtValueOne;
+        private TextBox txtValueTwo;
         private ComboBox cbbOperatorTwo;
         private ComboBox cbbConditionKeyTwo;
-        private ComboBox cbbExpressionThree;
-        private ComboBox cbbExpressionTwo;
-        private ComboBox cbbExpressionOne;
-        private ComboBox cbbNextStage;
+        private ComboBox cbbLogicalOperatorOne;
+        private ComboBox cbbNextStageTrue;
         private Label label14;
         private Button btnColorCondition;
         private TextBox txtStageName;
@@ -863,5 +836,10 @@
         private Label label17;
         private Button btnEdit;
         private Button btnRemove;
+        private Button btnUnselectedList;
+        private CheckBox ckbConditionTwo;
+        private CheckBox ckbConditionOne;
+        private Label label18;
+        private ComboBox cbbNextStageFalse;
     }
 }

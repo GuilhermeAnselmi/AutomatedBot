@@ -11,6 +11,13 @@ namespace AutomatedBot.Engine.Model
 
     public class Stage
     {
+        public string Name { get; set; }
+        public string Comment { get; set; }
+        public string Function { get; set; }
         public ModelProcedure Procedure { get; set; }
+        public PixelColor PColor { get; set; }
+        public List<WaitColorsCondition> ColorsCondition { get; set; }
+        public List<Condition> Conditions { get; set; }
+        public string CommandLine { get; set; }
     }
 }

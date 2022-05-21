@@ -1,23 +1,39 @@
-﻿using AutomatedBot.Engine.Model;
+﻿using AutomatedBot.Control;
+using AutomatedBot.Control.Data;
+using AutomatedBot.Engine.Model;
 using AutomatedBot.Model;
 using KlusterG.AutoGui;
+using Newtonsoft.Json;
 
 namespace AutomatedBot.View
 {
     public partial class PanelRoutine : Form
     {
         private Routine _routine;
+        private string NameTemp;
 
         public PanelRoutine(Routine routine = null)
         {
             InitializeComponent();
 
             _routine = routine == null ? new Routine() : routine;
+            NameTemp = null;
         }
 
         private void PanelRoutine_Load(object sender, EventArgs e)
         {
+            Random random = new Random();
+
+            for (int i = 0; i < 10; i++)
+            {
+                NameTemp += random.NextInt64(0, 9).ToString();
+            }
+
+            JsonDb.CreateTempFile(NameTemp);
+
             lblRoutineName.Text = _routine.Name;
+
+            lstAllStages.Items.Add("-");
 
             cbbFunction.Items.Clear();
 
@@ -36,16 +52,13 @@ namespace AutomatedBot.View
 
             cbbOperatorOne.Items.AddRange(Lists.Operators);
             cbbOperatorTwo.Items.AddRange(Lists.Operators);
-            cbbOperatorThree.Items.AddRange(Lists.Operators);
-            cbbOperatorFour.Items.AddRange(Lists.Operators);
 
-            cbbExpressionOne.Items.AddRange(Lists.Expression);
-            cbbExpressionTwo.Items.AddRange(Lists.Expression);
-            cbbExpressionThree.Items.AddRange(Lists.Expression);
+            cbbLogicalOperatorOne.Items.AddRange(Lists.Expression);
 
             cbbValueInput.Items.Add("-");
 
-            cbbNextStage.Items.Add("-");
+            cbbNextStageTrue.Items.Add("-");
+            cbbNextStageFalse.Items.Add("-");
 
             cbbFunction.SelectedIndex = 0;
 
@@ -55,16 +68,15 @@ namespace AutomatedBot.View
 
             cbbOperatorOne.SelectedIndex = 0;
             cbbOperatorTwo.SelectedIndex = 0;
-            cbbOperatorThree.SelectedIndex = 0;
-            cbbOperatorFour.SelectedIndex = 0;
 
-            cbbExpressionOne.SelectedIndex = 0;
-            cbbExpressionTwo.SelectedIndex = 0;
-            cbbExpressionThree.SelectedIndex = 0;
+            cbbLogicalOperatorOne.SelectedIndex = 0;
 
             cbbValueInput.SelectedIndex = 0;
 
-            cbbNextStage.SelectedIndex = 0;
+            cbbNextStageTrue.SelectedIndex = 0;
+            cbbNextStageFalse.SelectedIndex = 0;
+
+            txtWrite.Enabled = false;
 
             UpdateWindow();
         }
@@ -108,7 +120,7 @@ namespace AutomatedBot.View
 
         private void OpenColorCondition(object sender, EventArgs e)
         {
-            Form form = new ColorCondition();
+            Form form = new ColorCondition(NameTemp);
             form.Show();
             form.Closed += (s, args) => this.Enabled = true;
             form.BringToFront();
@@ -152,7 +164,8 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = false;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
 
                 case 1:
@@ -174,10 +187,34 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = false;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
 
                 case 2:
+                    txtR.Enabled = false;
+                    txtG.Enabled = false;
+                    txtB.Enabled = false;
+                    txtA.Enabled = false;
+                    ckbSimpleClick.Enabled = false;
+                    ckbSimpleClick.Checked = false;
+                    txtWrite.Enabled = false;
+                    txtWrite.Text = "";
+                    cbbKeyOne.Enabled = false;
+                    cbbKeyOne.SelectedIndex = 0;
+                    cbbKeyTwo.Enabled = false;
+                    cbbKeyTwo.SelectedIndex = 0;
+                    cbbKeyThree.Enabled = false;
+                    cbbKeyThree.SelectedIndex = 0;
+                    pnlCondition.Enabled = false;
+                    btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
+                    break;
+
+                case 3:
                     txtR.Enabled = false;
                     txtG.Enabled = false;
                     txtB.Enabled = false;
@@ -193,25 +230,8 @@ namespace AutomatedBot.View
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = true;
-                    cbbNextStage.Enabled = false;
-                    break;
-
-                case 3:
-                    txtR.Enabled = false;
-                    txtG.Enabled = false;
-                    txtB.Enabled = false;
-                    txtA.Enabled = false;
-                    ckbSimpleClick.Enabled = true;
-                    txtWrite.Enabled = false;
-                    txtWrite.Text = "";
-                    cbbKeyOne.Enabled = true;
-                    cbbKeyTwo.Enabled = true;
-                    cbbKeyThree.Enabled = true;
-                    pnlCondition.Enabled = false;
-                    btnColorCondition.Enabled = false;
-                    cbbValueInput.Enabled = false;
-                    cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = false;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
 
                 case 4:
@@ -229,7 +249,8 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = false;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
 
                 case 5:
@@ -247,10 +268,30 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = false;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
 
                 case 6:
+                    txtR.Enabled = false;
+                    txtG.Enabled = false;
+                    txtB.Enabled = false;
+                    txtA.Enabled = false;
+                    ckbSimpleClick.Enabled = true;
+                    txtWrite.Enabled = false;
+                    txtWrite.Text = "";
+                    cbbKeyOne.Enabled = true;
+                    cbbKeyTwo.Enabled = true;
+                    cbbKeyThree.Enabled = true;
+                    pnlCondition.Enabled = false;
+                    btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
+                    break;
+
+                case 7:
                     txtR.Enabled = true;
                     txtG.Enabled = true;
                     txtB.Enabled = true;
@@ -268,10 +309,11 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = false;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
 
-                case 7:
+                case 8:
                     txtR.Enabled = false;
                     txtG.Enabled = false;
                     txtB.Enabled = false;
@@ -289,10 +331,11 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = true;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = false;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
 
-                case 8:
+                case 9:
                     txtR.Enabled = false;
                     txtG.Enabled = false;
                     txtB.Enabled = false;
@@ -311,7 +354,29 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStage.Enabled = true;
+                    cbbNextStageTrue.Enabled = true;
+                    cbbNextStageFalse.Enabled = true;
+                    break;
+
+                case 10:
+                    txtR.Enabled = false;
+                    txtG.Enabled = false;
+                    txtB.Enabled = false;
+                    txtA.Enabled = false;
+                    ckbSimpleClick.Enabled = false;
+                    ckbSimpleClick.Checked = false;
+                    txtWrite.Enabled = true;
+                    cbbKeyOne.Enabled = false;
+                    cbbKeyOne.SelectedIndex = 0;
+                    cbbKeyTwo.Enabled = false;
+                    cbbKeyTwo.SelectedIndex = 0;
+                    cbbKeyThree.Enabled = false;
+                    cbbKeyThree.SelectedIndex = 0;
+                    pnlCondition.Enabled = false;
+                    btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = true;
+                    cbbNextStageTrue.Enabled = false;
+                    cbbNextStageFalse.Enabled = false;
                     break;
             }
         }
@@ -326,6 +391,165 @@ namespace AutomatedBot.View
             else
             {
                 txtWrite.Enabled = true;
+            }
+        }
+
+        private void UnselectedList(object sender, EventArgs e)
+        {
+            lstAllStages.ClearSelected();
+        }
+
+        private void SaveStage(object sender, EventArgs e)
+        {
+            if (txtStageName.Text != "")
+            {
+                bool next = true;
+
+                if (_routine.Stage != null && _routine.Stage.Where(x => x.Name == txtStageName.Text).Any())
+                {
+                    var res = MessageBox.Show("Uma etapa com o mesmo nome já existe. Gostaria de sobreescreve-la?", "Etapa Existente", MessageBoxButtons.YesNo);
+
+                    next = res.ToString() == "Yes" ? true : false;
+                }
+                
+                if (next) ConstructStage();
+            }
+            else
+            {
+                MessageBox.Show("O nome da etapa deve ser preenchido", "Não Salvo!", MessageBoxButtons.OK);
+            }
+        }
+
+        private void ConstructStage()
+        {
+            bool success = true;
+            string alert = "";
+
+            StructureStage ss = new StructureStage(txtStageName.Text, txtComments.Text, int.Parse(txtPosX.Text),
+                        int.Parse(txtPosY.Text), ckbMoveMouse.Checked);
+
+            switch (cbbFunction.SelectedIndex)
+            {
+                case 0:
+                    ss.SimpleClick(ckbSimpleClick.Checked, int.Parse(txtWait.Text));
+                    break;
+
+                case 1:
+                    ss.RightClick(int.Parse(txtWait.Text));
+                    break;
+
+                case 2:
+                    ss.DoubleClick(int.Parse(txtWait.Text));
+                    break;
+
+                case 3:
+                    ss.Write(ckbSimpleClick.Checked, txtWrite.Text, int.Parse(txtWait.Text));
+                    break;
+
+                case 4:
+                    ss.ClickKey(ckbSimpleClick.Checked, cbbKeyOne.SelectedIndex, cbbKeyTwo.SelectedIndex, 
+                        cbbKeyThree.SelectedIndex, int.Parse(txtWait.Text));
+                    break;
+
+                case 5:
+                    ss.PressKey(ckbSimpleClick.Checked, cbbKeyOne.SelectedIndex, cbbKeyTwo.SelectedIndex,
+                        cbbKeyThree.SelectedIndex, int.Parse(txtWait.Text));
+                    break;
+
+                case 6:
+                    ss.ReleaseKey(ckbSimpleClick.Checked, cbbKeyOne.SelectedIndex, cbbKeyTwo.SelectedIndex,
+                        cbbKeyThree.SelectedIndex, int.Parse(txtWait.Text));
+                    break;
+
+                case 7:
+                    PixelColor pc = new PixelColor();
+                    pc.R = byte.Parse(txtR.Value.ToString());
+                    pc.G = byte.Parse(txtG.Value.ToString());
+                    pc.B = byte.Parse(txtB.Value.ToString());
+                    pc.A = byte.Parse(txtA.Value.ToString());
+
+                    ss.WaitColor(pc, int.Parse(txtWait.Text));
+                    break;
+
+                case 8:
+                    List<WaitColorsCondition> waitColors = new List<WaitColorsCondition>();
+
+                    var response = JsonDb.ReadTempFile(NameTemp);
+
+                    if (response.Item1)
+                    {
+                        waitColors = JsonConvert.DeserializeObject<List<WaitColorsCondition>>(response.Item2);
+
+                        ss.WaitColorCondition(waitColors, int.Parse(txtWait.Text));
+                    }
+                    else
+                    {
+                        success = false;
+                        alert = $"Erro eu recuperar informações sobre a condição das cores.\nArquivo temporario {NameTemp}.temp";
+                    }
+
+                    break;
+
+                case 9:
+                    List<Condition> conditions = new List<Condition>();
+
+                    if (ckbConditionOne.Checked && cbbConditionKeyOne.SelectedText != "" && 
+                        cbbOperatorOne.SelectedText != "" && txtValueOne.Text != "" && 
+                        cbbLogicalOperatorOne.SelectedText != "")
+                    {
+                        conditions.Add(new Condition()
+                        {
+                            Key = cbbConditionKeyOne.SelectedText,
+                            Operator = cbbOperatorOne.SelectedText,
+                            Value = txtValueOne.Text,
+                            LogicalOperator = cbbLogicalOperatorOne.SelectedText,
+                        });
+
+                        if (ckbConditionTwo.Checked)
+                        {
+                            if (cbbConditionKeyOne.SelectedText != "" && cbbOperatorOne.SelectedText != "" &&
+                                txtValueOne.Text != "" && cbbLogicalOperatorOne.SelectedText != "")
+                            {
+                                conditions.Add(new Condition()
+                                {
+                                    Key = cbbConditionKeyTwo.SelectedText,
+                                    Operator = cbbOperatorTwo.SelectedText,
+                                    Value = txtValueTwo.Text,
+                                });
+
+                                ss.Condition(conditions, cbbNextStageTrue.SelectedText, int.Parse(txtWait.Text));
+                            }
+                            else
+                            {
+                                success = false;
+                                alert = "Todos os valores para condição ativa devem ser peenchidos";
+                            }
+                        }
+                        else
+                        {
+                            ss.Condition(conditions, cbbNextStageTrue.SelectedText, int.Parse(txtWait.Text));
+                        }
+                    }
+                    else
+                    {
+                        success = false;
+                        alert = "Todos os valores para condição ativa devem ser peenchidos";
+                    }
+
+                    break;
+
+                case 10:
+                    ss.CommandLine(txtWrite.Text, int.Parse(txtWait.Text));
+                    break;
+            }
+
+            if (success)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show($"{alert}", "Não foi Possível Salvar", MessageBoxButtons.OK);
             }
         }
     }

@@ -7,6 +7,7 @@ namespace AutomatedBot.Control.Data
     {
         private static readonly string Path = Directory.GetCurrentDirectory() + "\\FilesJson\\";
         private static readonly string InputParams = Path + "\\Configs\\_InputParams.json";
+        private static readonly string TempPath = Path + "\\Temp\\";
 
         public static Tuple<bool, string> Create(string name)
         {
@@ -128,6 +129,49 @@ namespace AutomatedBot.Control.Data
             }
 
             return json;
+        }
+
+        public static void CreateTempFile(string nameTemp)
+        {
+            string fineName = nameTemp + ".temp";
+
+            if (!Directory.Exists(TempPath)) Directory.CreateDirectory(TempPath);
+
+            if (File.Exists(TempPath + fineName)) File.Delete(TempPath + fineName);
+
+            File.Create(TempPath + fineName).Close();
+        }
+
+        public static Tuple<bool, string> ReadTempFile(string nameTemp)
+        {
+            string fileName = nameTemp + ".temp";
+
+            if (File.Exists(TempPath + fileName))
+            {
+                string json = File.ReadAllText(TempPath + fileName);
+
+                return new Tuple<bool, string>(true, json);
+            }
+            else
+            {
+                return new Tuple<bool, string>(false, "Arquivo temporario não encontrado");
+            }
+        }
+
+        public static bool WriteTempFile(string nameTemp, string content)
+        {
+            string fileName = nameTemp + ".temp";
+
+            if (File.Exists(TempPath + fileName))
+            {
+                File.WriteAllText(TempPath + fileName, content);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

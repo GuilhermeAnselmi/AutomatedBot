@@ -29,104 +29,261 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.cbbRooutineOne = new System.Windows.Forms.ComboBox();
+            this.txtAOne = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
+            this.txtBOne = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtGOne = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtROne = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtYOne = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtXOne = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ckbModuleOne = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
+            this.cbbRooutineTwo = new System.Windows.Forms.ComboBox();
+            this.txtATwo = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.txtBTwo = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
+            this.txtGTwo = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
+            this.txtRTwo = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
+            this.txtYTwo = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
+            this.txtXTwo = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.ckbModuleTwo = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown13 = new System.Windows.Forms.NumericUpDown();
+            this.cbbRooutineThree = new System.Windows.Forms.ComboBox();
+            this.txtAThree = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDown14 = new System.Windows.Forms.NumericUpDown();
+            this.txtBThree = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDown15 = new System.Windows.Forms.NumericUpDown();
+            this.txtGThree = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
-            this.numericUpDown16 = new System.Windows.Forms.NumericUpDown();
+            this.txtRThree = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown17 = new System.Windows.Forms.NumericUpDown();
+            this.txtYThree = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
-            this.numericUpDown18 = new System.Windows.Forms.NumericUpDown();
+            this.txtXThree = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.ckbModuleThree = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDone = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtROne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtXOne)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtATwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtXTwo)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtXThree)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.numericUpDown5);
+            this.panel1.Controls.Add(this.cbbRooutineOne);
+            this.panel1.Controls.Add(this.txtAOne);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.numericUpDown6);
+            this.panel1.Controls.Add(this.txtBOne);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.numericUpDown3);
+            this.panel1.Controls.Add(this.txtGOne);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.numericUpDown4);
+            this.panel1.Controls.Add(this.txtROne);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.numericUpDown2);
+            this.panel1.Controls.Add(this.txtYOne);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Controls.Add(this.txtXOne);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.checkBox1);
+            this.panel1.Controls.Add(this.ckbModuleOne);
             this.panel1.Location = new System.Drawing.Point(12, 43);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(439, 141);
             this.panel1.TabIndex = 0;
             // 
-            // checkBox1
+            // cbbRooutineOne
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 65);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbbRooutineOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRooutineOne.FormattingEnabled = true;
+            this.cbbRooutineOne.Location = new System.Drawing.Point(315, 61);
+            this.cbbRooutineOne.Name = "cbbRooutineOne";
+            this.cbbRooutineOne.Size = new System.Drawing.Size(121, 23);
+            this.cbbRooutineOne.TabIndex = 13;
+            // 
+            // txtAOne
+            // 
+            this.txtAOne.Location = new System.Drawing.Point(225, 92);
+            this.txtAOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtAOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtAOne.Name = "txtAOne";
+            this.txtAOne.Size = new System.Drawing.Size(57, 23);
+            this.txtAOne.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(225, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 15);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "A";
+            // 
+            // txtBOne
+            // 
+            this.txtBOne.Location = new System.Drawing.Point(162, 92);
+            this.txtBOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtBOne.Name = "txtBOne";
+            this.txtBOne.Size = new System.Drawing.Size(57, 23);
+            this.txtBOne.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(162, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 15);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "B";
+            // 
+            // txtGOne
+            // 
+            this.txtGOne.Location = new System.Drawing.Point(99, 92);
+            this.txtGOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtGOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtGOne.Name = "txtGOne";
+            this.txtGOne.Size = new System.Drawing.Size(57, 23);
+            this.txtGOne.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(99, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "G";
+            // 
+            // txtROne
+            // 
+            this.txtROne.Location = new System.Drawing.Point(36, 92);
+            this.txtROne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtROne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtROne.Name = "txtROne";
+            this.txtROne.Size = new System.Drawing.Size(57, 23);
+            this.txtROne.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(36, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(15, 15);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "R";
+            // 
+            // txtYOne
+            // 
+            this.txtYOne.Location = new System.Drawing.Point(100, 31);
+            this.txtYOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtYOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtYOne.Name = "txtYOne";
+            this.txtYOne.Size = new System.Drawing.Size(57, 23);
+            this.txtYOne.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(100, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Y";
+            // 
+            // txtXOne
+            // 
+            this.txtXOne.Location = new System.Drawing.Point(37, 31);
+            this.txtXOne.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtXOne.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtXOne.Name = "txtXOne";
+            this.txtXOne.Size = new System.Drawing.Size(57, 23);
+            this.txtXOne.TabIndex = 2;
             // 
             // label1
             // 
@@ -139,146 +296,61 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "X";
             // 
-            // numericUpDown1
+            // ckbModuleOne
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(37, 31);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown1.TabIndex = 2;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(100, 31);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown2.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(100, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "X";
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(99, 92);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown3.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(99, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "X";
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(36, 92);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown4.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(36, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 15);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "X";
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Location = new System.Drawing.Point(225, 92);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown5.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(225, 74);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "X";
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Location = new System.Drawing.Point(162, 92);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown6.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(162, 74);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 15);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "X";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(315, 61);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 13;
+            this.ckbModuleOne.AutoSize = true;
+            this.ckbModuleOne.Location = new System.Drawing.Point(3, 65);
+            this.ckbModuleOne.Name = "ckbModuleOne";
+            this.ckbModuleOne.Size = new System.Drawing.Size(15, 14);
+            this.ckbModuleOne.TabIndex = 0;
+            this.ckbModuleOne.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.numericUpDown7);
+            this.panel2.Controls.Add(this.cbbRooutineTwo);
+            this.panel2.Controls.Add(this.txtATwo);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.numericUpDown8);
+            this.panel2.Controls.Add(this.txtBTwo);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.numericUpDown9);
+            this.panel2.Controls.Add(this.txtGTwo);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.numericUpDown10);
+            this.panel2.Controls.Add(this.txtRTwo);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.numericUpDown11);
+            this.panel2.Controls.Add(this.txtYTwo);
             this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.numericUpDown12);
+            this.panel2.Controls.Add(this.txtXTwo);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.checkBox2);
+            this.panel2.Controls.Add(this.ckbModuleTwo);
             this.panel2.Location = new System.Drawing.Point(12, 190);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(439, 141);
             this.panel2.TabIndex = 14;
             // 
-            // comboBox2
+            // cbbRooutineTwo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(315, 61);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 13;
+            this.cbbRooutineTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRooutineTwo.FormattingEnabled = true;
+            this.cbbRooutineTwo.Location = new System.Drawing.Point(315, 61);
+            this.cbbRooutineTwo.Name = "cbbRooutineTwo";
+            this.cbbRooutineTwo.Size = new System.Drawing.Size(121, 23);
+            this.cbbRooutineTwo.TabIndex = 13;
             // 
-            // numericUpDown7
+            // txtATwo
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(225, 92);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown7.TabIndex = 12;
+            this.txtATwo.Location = new System.Drawing.Point(225, 92);
+            this.txtATwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtATwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtATwo.Name = "txtATwo";
+            this.txtATwo.Size = new System.Drawing.Size(57, 23);
+            this.txtATwo.TabIndex = 12;
             // 
             // label7
             // 
@@ -289,14 +361,24 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 15);
             this.label7.TabIndex = 11;
-            this.label7.Text = "X";
+            this.label7.Text = "A";
             // 
-            // numericUpDown8
+            // txtBTwo
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(162, 92);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown8.TabIndex = 10;
+            this.txtBTwo.Location = new System.Drawing.Point(162, 92);
+            this.txtBTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtBTwo.Name = "txtBTwo";
+            this.txtBTwo.Size = new System.Drawing.Size(57, 23);
+            this.txtBTwo.TabIndex = 10;
             // 
             // label8
             // 
@@ -307,14 +389,24 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(15, 15);
             this.label8.TabIndex = 9;
-            this.label8.Text = "X";
+            this.label8.Text = "B";
             // 
-            // numericUpDown9
+            // txtGTwo
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(99, 92);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown9.TabIndex = 8;
+            this.txtGTwo.Location = new System.Drawing.Point(99, 92);
+            this.txtGTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtGTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtGTwo.Name = "txtGTwo";
+            this.txtGTwo.Size = new System.Drawing.Size(57, 23);
+            this.txtGTwo.TabIndex = 8;
             // 
             // label9
             // 
@@ -323,16 +415,26 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(99, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 15);
+            this.label9.Size = new System.Drawing.Size(16, 15);
             this.label9.TabIndex = 7;
-            this.label9.Text = "X";
+            this.label9.Text = "G";
             // 
-            // numericUpDown10
+            // txtRTwo
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(36, 92);
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown10.TabIndex = 6;
+            this.txtRTwo.Location = new System.Drawing.Point(36, 92);
+            this.txtRTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtRTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtRTwo.Name = "txtRTwo";
+            this.txtRTwo.Size = new System.Drawing.Size(57, 23);
+            this.txtRTwo.TabIndex = 6;
             // 
             // label10
             // 
@@ -343,14 +445,24 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(15, 15);
             this.label10.TabIndex = 5;
-            this.label10.Text = "X";
+            this.label10.Text = "R";
             // 
-            // numericUpDown11
+            // txtYTwo
             // 
-            this.numericUpDown11.Location = new System.Drawing.Point(100, 31);
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown11.TabIndex = 4;
+            this.txtYTwo.Location = new System.Drawing.Point(100, 31);
+            this.txtYTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtYTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtYTwo.Name = "txtYTwo";
+            this.txtYTwo.Size = new System.Drawing.Size(57, 23);
+            this.txtYTwo.TabIndex = 4;
             // 
             // label11
             // 
@@ -359,16 +471,26 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(100, 13);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(15, 15);
+            this.label11.Size = new System.Drawing.Size(14, 15);
             this.label11.TabIndex = 3;
-            this.label11.Text = "X";
+            this.label11.Text = "Y";
             // 
-            // numericUpDown12
+            // txtXTwo
             // 
-            this.numericUpDown12.Location = new System.Drawing.Point(37, 31);
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown12.TabIndex = 2;
+            this.txtXTwo.Location = new System.Drawing.Point(37, 31);
+            this.txtXTwo.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtXTwo.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtXTwo.Name = "txtXTwo";
+            this.txtXTwo.Size = new System.Drawing.Size(57, 23);
+            this.txtXTwo.TabIndex = 2;
             // 
             // label12
             // 
@@ -381,50 +503,61 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "X";
             // 
-            // checkBox2
+            // ckbModuleTwo
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(3, 65);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.ckbModuleTwo.AutoSize = true;
+            this.ckbModuleTwo.Location = new System.Drawing.Point(3, 65);
+            this.ckbModuleTwo.Name = "ckbModuleTwo";
+            this.ckbModuleTwo.Size = new System.Drawing.Size(15, 14);
+            this.ckbModuleTwo.TabIndex = 0;
+            this.ckbModuleTwo.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.comboBox3);
-            this.panel3.Controls.Add(this.numericUpDown13);
+            this.panel3.Controls.Add(this.cbbRooutineThree);
+            this.panel3.Controls.Add(this.txtAThree);
             this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.numericUpDown14);
+            this.panel3.Controls.Add(this.txtBThree);
             this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.numericUpDown15);
+            this.panel3.Controls.Add(this.txtGThree);
             this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.numericUpDown16);
+            this.panel3.Controls.Add(this.txtRThree);
             this.panel3.Controls.Add(this.label16);
-            this.panel3.Controls.Add(this.numericUpDown17);
+            this.panel3.Controls.Add(this.txtYThree);
             this.panel3.Controls.Add(this.label17);
-            this.panel3.Controls.Add(this.numericUpDown18);
+            this.panel3.Controls.Add(this.txtXThree);
             this.panel3.Controls.Add(this.label18);
-            this.panel3.Controls.Add(this.checkBox3);
+            this.panel3.Controls.Add(this.ckbModuleThree);
             this.panel3.Location = new System.Drawing.Point(12, 337);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(439, 141);
             this.panel3.TabIndex = 14;
             // 
-            // comboBox3
+            // cbbRooutineThree
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(315, 61);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 23);
-            this.comboBox3.TabIndex = 13;
+            this.cbbRooutineThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRooutineThree.FormattingEnabled = true;
+            this.cbbRooutineThree.Location = new System.Drawing.Point(315, 61);
+            this.cbbRooutineThree.Name = "cbbRooutineThree";
+            this.cbbRooutineThree.Size = new System.Drawing.Size(121, 23);
+            this.cbbRooutineThree.TabIndex = 13;
             // 
-            // numericUpDown13
+            // txtAThree
             // 
-            this.numericUpDown13.Location = new System.Drawing.Point(225, 92);
-            this.numericUpDown13.Name = "numericUpDown13";
-            this.numericUpDown13.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown13.TabIndex = 12;
+            this.txtAThree.Location = new System.Drawing.Point(225, 92);
+            this.txtAThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtAThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtAThree.Name = "txtAThree";
+            this.txtAThree.Size = new System.Drawing.Size(57, 23);
+            this.txtAThree.TabIndex = 12;
             // 
             // label13
             // 
@@ -435,14 +568,24 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(15, 15);
             this.label13.TabIndex = 11;
-            this.label13.Text = "X";
+            this.label13.Text = "A";
             // 
-            // numericUpDown14
+            // txtBThree
             // 
-            this.numericUpDown14.Location = new System.Drawing.Point(162, 92);
-            this.numericUpDown14.Name = "numericUpDown14";
-            this.numericUpDown14.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown14.TabIndex = 10;
+            this.txtBThree.Location = new System.Drawing.Point(162, 92);
+            this.txtBThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtBThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtBThree.Name = "txtBThree";
+            this.txtBThree.Size = new System.Drawing.Size(57, 23);
+            this.txtBThree.TabIndex = 10;
             // 
             // label14
             // 
@@ -453,14 +596,24 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(15, 15);
             this.label14.TabIndex = 9;
-            this.label14.Text = "X";
+            this.label14.Text = "B";
             // 
-            // numericUpDown15
+            // txtGThree
             // 
-            this.numericUpDown15.Location = new System.Drawing.Point(99, 92);
-            this.numericUpDown15.Name = "numericUpDown15";
-            this.numericUpDown15.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown15.TabIndex = 8;
+            this.txtGThree.Location = new System.Drawing.Point(99, 92);
+            this.txtGThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtGThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtGThree.Name = "txtGThree";
+            this.txtGThree.Size = new System.Drawing.Size(57, 23);
+            this.txtGThree.TabIndex = 8;
             // 
             // label15
             // 
@@ -469,16 +622,26 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(99, 74);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(15, 15);
+            this.label15.Size = new System.Drawing.Size(16, 15);
             this.label15.TabIndex = 7;
-            this.label15.Text = "X";
+            this.label15.Text = "G";
             // 
-            // numericUpDown16
+            // txtRThree
             // 
-            this.numericUpDown16.Location = new System.Drawing.Point(36, 92);
-            this.numericUpDown16.Name = "numericUpDown16";
-            this.numericUpDown16.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown16.TabIndex = 6;
+            this.txtRThree.Location = new System.Drawing.Point(36, 92);
+            this.txtRThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtRThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtRThree.Name = "txtRThree";
+            this.txtRThree.Size = new System.Drawing.Size(57, 23);
+            this.txtRThree.TabIndex = 6;
             // 
             // label16
             // 
@@ -489,14 +652,24 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(15, 15);
             this.label16.TabIndex = 5;
-            this.label16.Text = "X";
+            this.label16.Text = "R";
             // 
-            // numericUpDown17
+            // txtYThree
             // 
-            this.numericUpDown17.Location = new System.Drawing.Point(100, 31);
-            this.numericUpDown17.Name = "numericUpDown17";
-            this.numericUpDown17.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown17.TabIndex = 4;
+            this.txtYThree.Location = new System.Drawing.Point(100, 31);
+            this.txtYThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtYThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtYThree.Name = "txtYThree";
+            this.txtYThree.Size = new System.Drawing.Size(57, 23);
+            this.txtYThree.TabIndex = 4;
             // 
             // label17
             // 
@@ -505,16 +678,26 @@
             this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(100, 13);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(15, 15);
+            this.label17.Size = new System.Drawing.Size(14, 15);
             this.label17.TabIndex = 3;
-            this.label17.Text = "X";
+            this.label17.Text = "Y";
             // 
-            // numericUpDown18
+            // txtXThree
             // 
-            this.numericUpDown18.Location = new System.Drawing.Point(37, 31);
-            this.numericUpDown18.Name = "numericUpDown18";
-            this.numericUpDown18.Size = new System.Drawing.Size(57, 23);
-            this.numericUpDown18.TabIndex = 2;
+            this.txtXThree.Location = new System.Drawing.Point(37, 31);
+            this.txtXThree.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtXThree.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.txtXThree.Name = "txtXThree";
+            this.txtXThree.Size = new System.Drawing.Size(57, 23);
+            this.txtXThree.TabIndex = 2;
             // 
             // label18
             // 
@@ -527,14 +710,14 @@
             this.label18.TabIndex = 1;
             this.label18.Text = "X";
             // 
-            // checkBox3
+            // ckbModuleThree
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(3, 65);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.ckbModuleThree.AutoSize = true;
+            this.ckbModuleThree.Location = new System.Drawing.Point(3, 65);
+            this.ckbModuleThree.Name = "ckbModuleThree";
+            this.ckbModuleThree.Size = new System.Drawing.Size(15, 14);
+            this.ckbModuleThree.TabIndex = 0;
+            this.ckbModuleThree.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
@@ -574,30 +757,31 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ColorCondition";
+            this.Load += new System.EventHandler(this.ColorCondition_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtROne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtXOne)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtATwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtXTwo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtYThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtXThree)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -605,50 +789,50 @@
         #endregion
 
         private Panel panel1;
-        private ComboBox comboBox1;
-        private NumericUpDown numericUpDown5;
+        private ComboBox cbbRooutineOne;
+        private NumericUpDown txtAOne;
         private Label label5;
-        private NumericUpDown numericUpDown6;
+        private NumericUpDown txtBOne;
         private Label label6;
-        private NumericUpDown numericUpDown3;
+        private NumericUpDown txtGOne;
         private Label label3;
-        private NumericUpDown numericUpDown4;
+        private NumericUpDown txtROne;
         private Label label4;
-        private NumericUpDown numericUpDown2;
+        private NumericUpDown txtYOne;
         private Label label2;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown txtXOne;
         private Label label1;
-        private CheckBox checkBox1;
+        private CheckBox ckbModuleOne;
         private Panel panel2;
-        private ComboBox comboBox2;
-        private NumericUpDown numericUpDown7;
+        private ComboBox cbbRooutineTwo;
+        private NumericUpDown txtATwo;
         private Label label7;
-        private NumericUpDown numericUpDown8;
+        private NumericUpDown txtBTwo;
         private Label label8;
-        private NumericUpDown numericUpDown9;
+        private NumericUpDown txtGTwo;
         private Label label9;
-        private NumericUpDown numericUpDown10;
+        private NumericUpDown txtRTwo;
         private Label label10;
-        private NumericUpDown numericUpDown11;
+        private NumericUpDown txtYTwo;
         private Label label11;
-        private NumericUpDown numericUpDown12;
+        private NumericUpDown txtXTwo;
         private Label label12;
-        private CheckBox checkBox2;
+        private CheckBox ckbModuleTwo;
         private Panel panel3;
-        private ComboBox comboBox3;
-        private NumericUpDown numericUpDown13;
+        private ComboBox cbbRooutineThree;
+        private NumericUpDown txtAThree;
         private Label label13;
-        private NumericUpDown numericUpDown14;
+        private NumericUpDown txtBThree;
         private Label label14;
-        private NumericUpDown numericUpDown15;
+        private NumericUpDown txtGThree;
         private Label label15;
-        private NumericUpDown numericUpDown16;
+        private NumericUpDown txtRThree;
         private Label label16;
-        private NumericUpDown numericUpDown17;
+        private NumericUpDown txtYThree;
         private Label label17;
-        private NumericUpDown numericUpDown18;
+        private NumericUpDown txtXThree;
         private Label label18;
-        private CheckBox checkBox3;
+        private CheckBox ckbModuleThree;
         private Button btnSave;
         private Button btnDone;
     }

@@ -11,14 +11,16 @@ namespace AutomatedBot.Model
         public static readonly Tuple<int, string>[] Functions =
         {
             new Tuple<int, string>(0, "Sem Ação"),
-            new Tuple<int, string>(1, "Clique Duplo"),
-            new Tuple<int, string>(2, "Escrever"),
-            new Tuple<int, string>(3, "Clicar tecla"),
-            new Tuple<int, string>(4, "Pressionar tecla"),
-            new Tuple<int, string>(5, "Soltar teclas"),
-            new Tuple<int, string>(6, "Verif. cor e aguardar"),
-            new Tuple<int, string>(7, "Verif. cor e chamar rotina"),
-            new Tuple<int, string>(8, "Condição"),
+            new Tuple<int, string>(1, "Clique Direito"),
+            new Tuple<int, string>(2, "Clique Duplo"),
+            new Tuple<int, string>(3, "Escrever"),
+            new Tuple<int, string>(4, "Clicar tecla"),
+            new Tuple<int, string>(5, "Pressionar tecla"),
+            new Tuple<int, string>(6, "Soltar tecla"),
+            new Tuple<int, string>(7, "Verif. cor e aguardar"),
+            new Tuple<int, string>(8, "Verif. cor e chamar rotina"),
+            new Tuple<int, string>(9, "Condição"),
+            new Tuple<int, string>(10, "Linha de Comando"),
         };
 
         public static readonly string[] Expression =
