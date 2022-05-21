@@ -6,6 +6,7 @@ namespace AutomatedBot.Control.Data
     internal class JsonDb
     {
         private static readonly string Path = Directory.GetCurrentDirectory() + "\\FilesJson\\";
+        private static readonly string InputParams = Path + "\\Configs\\_InputParams.json";
 
         public static Tuple<bool, string> Create(string name)
         {
@@ -71,6 +72,62 @@ namespace AutomatedBot.Control.Data
             Routine routine = routines.Where<Routine>(x => x.Name == name).First();
 
             return routine;
+        }
+
+        public static Tuple<bool, string> SaveParamInicialization(string routineName, object jsonParams)
+        {
+            try
+            {
+                List<ParamsInicialization> pi = new List<ParamsInicialization>();
+
+                string content = "";
+
+                if (!Directory.Exists(Path + "\\Configs"))
+                {
+                    Directory.CreateDirectory(Path + "\\Configs");
+                }
+
+                if (!File.Exists(InputParams))
+                {
+                    File.Create(InputParams).Close();
+                }
+                else
+                {
+                    pi = JsonConvert.DeserializeObject<List<ParamsInicialization>>(File.ReadAllText(InputParams));
+                }
+
+                pi = pi.Where(x => x.RoutineName != routineName).ToList();
+
+                pi.Add(new ParamsInicialization() { RoutineName = routineName, InputParams = jsonParams });
+
+                string json = JsonConvert.SerializeObject(pi);
+
+                File.WriteAllText(InputParams, json);
+
+                return new Tuple<bool, string>(true, null);
+            }
+            catch (Exception ex)
+            {
+                return new Tuple<bool, string>(false, $"Error: {ex}");
+            }
+        }
+
+        public static string GetParamInicialization(string routineName)
+        {
+            List<ParamsInicialization> pi = new List<ParamsInicialization>();
+
+            pi = JsonConvert.DeserializeObject<List<ParamsInicialization>>(File.ReadAllText(InputParams));
+
+            ParamsInicialization obj = pi.Where(x => x.RoutineName == routineName).FirstOrDefault();
+
+            string json = "";
+
+            if (obj != null)
+            {
+                json = JsonConvert.SerializeObject(obj.InputParams);
+            }
+
+            return json;
         }
     }
 }

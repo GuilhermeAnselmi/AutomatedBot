@@ -85,6 +85,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtComments = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.cbbValueInput = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtR)).BeginInit();
@@ -102,9 +106,9 @@
             this.lstAllStages.ForeColor = System.Drawing.Color.White;
             this.lstAllStages.FormattingEnabled = true;
             this.lstAllStages.ItemHeight = 15;
-            this.lstAllStages.Location = new System.Drawing.Point(794, 12);
+            this.lstAllStages.Location = new System.Drawing.Point(794, 42);
             this.lstAllStages.Name = "lstAllStages";
-            this.lstAllStages.Size = new System.Drawing.Size(178, 632);
+            this.lstAllStages.Size = new System.Drawing.Size(178, 602);
             this.lstAllStages.TabIndex = 0;
             // 
             // label1
@@ -215,6 +219,11 @@
             0,
             0,
             0});
+            this.txtPosX.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.txtPosX.Name = "txtPosX";
             this.txtPosX.Size = new System.Drawing.Size(84, 23);
             this.txtPosX.TabIndex = 1;
@@ -227,6 +236,11 @@
             0,
             0,
             0});
+            this.txtPosY.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.txtPosY.Name = "txtPosY";
             this.txtPosY.Size = new System.Drawing.Size(84, 23);
             this.txtPosY.TabIndex = 2;
@@ -651,16 +665,16 @@
             this.label15.ForeColor = System.Drawing.Color.White;
             this.label15.Location = new System.Drawing.Point(12, 475);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 15);
+            this.label15.Size = new System.Drawing.Size(91, 15);
             this.label15.TabIndex = 66;
-            this.label15.Text = "Nome do Estágio";
+            this.label15.Text = "Nome do Etapa";
             // 
             // txtComments
             // 
-            this.txtComments.Location = new System.Drawing.Point(356, 493);
+            this.txtComments.Location = new System.Drawing.Point(192, 493);
             this.txtComments.Multiline = true;
             this.txtComments.Name = "txtComments";
-            this.txtComments.Size = new System.Drawing.Size(428, 52);
+            this.txtComments.Size = new System.Drawing.Size(592, 52);
             this.txtComments.TabIndex = 67;
             // 
             // label16
@@ -668,11 +682,51 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(356, 475);
+            this.label16.Location = new System.Drawing.Point(192, 475);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 15);
             this.label16.TabIndex = 68;
             this.label16.Text = "Comentário";
+            // 
+            // cbbValueInput
+            // 
+            this.cbbValueInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbValueInput.Enabled = false;
+            this.cbbValueInput.FormattingEnabled = true;
+            this.cbbValueInput.Location = new System.Drawing.Point(192, 337);
+            this.cbbValueInput.Name = "cbbValueInput";
+            this.cbbValueInput.Size = new System.Drawing.Size(158, 23);
+            this.cbbValueInput.TabIndex = 69;
+            this.cbbValueInput.SelectedValueChanged += new System.EventHandler(this.ValueInputChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(192, 319);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(97, 15);
+            this.label17.TabIndex = 70;
+            this.label17.Text = "Valor de Entrada";
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(794, 13);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(65, 23);
+            this.btnEdit.TabIndex = 71;
+            this.btnEdit.Text = "Editar";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(907, 13);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(65, 23);
+            this.btnRemove.TabIndex = 72;
+            this.btnRemove.Text = "Excluir";
+            this.btnRemove.UseVisualStyleBackColor = true;
             // 
             // PanelRoutine
             // 
@@ -681,6 +735,10 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.cbbValueInput);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtComments);
             this.Controls.Add(this.label15);
@@ -801,5 +859,9 @@
         private Label label15;
         private TextBox txtComments;
         private Label label16;
+        private ComboBox cbbValueInput;
+        private Label label17;
+        private Button btnEdit;
+        private Button btnRemove;
     }
 }

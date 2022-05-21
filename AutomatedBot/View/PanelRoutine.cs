@@ -43,6 +43,10 @@ namespace AutomatedBot.View
             cbbExpressionTwo.Items.AddRange(Lists.Expression);
             cbbExpressionThree.Items.AddRange(Lists.Expression);
 
+            cbbValueInput.Items.Add("-");
+
+            cbbNextStage.Items.Add("-");
+
             cbbFunction.SelectedIndex = 0;
 
             cbbKeyOne.SelectedIndex = 0;
@@ -57,6 +61,17 @@ namespace AutomatedBot.View
             cbbExpressionOne.SelectedIndex = 0;
             cbbExpressionTwo.SelectedIndex = 0;
             cbbExpressionThree.SelectedIndex = 0;
+
+            cbbValueInput.SelectedIndex = 0;
+
+            cbbNextStage.SelectedIndex = 0;
+
+            UpdateWindow();
+        }
+
+        private void UpdateWindow()
+        {
+
         }
 
         private void Done(object sender, EventArgs e)
@@ -135,6 +150,9 @@ namespace AutomatedBot.View
                     cbbKeyThree.SelectedIndex = 0;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 1:
@@ -154,6 +172,9 @@ namespace AutomatedBot.View
                     cbbKeyThree.SelectedIndex = 0;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 2:
@@ -171,6 +192,8 @@ namespace AutomatedBot.View
                     cbbKeyThree.SelectedIndex = 0;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = true;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 3:
@@ -186,6 +209,9 @@ namespace AutomatedBot.View
                     cbbKeyThree.Enabled = true;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 4:
@@ -201,6 +227,9 @@ namespace AutomatedBot.View
                     cbbKeyThree.Enabled = true;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 5:
@@ -216,6 +245,9 @@ namespace AutomatedBot.View
                     cbbKeyThree.Enabled = true;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 6:
@@ -234,6 +266,9 @@ namespace AutomatedBot.View
                     cbbKeyThree.SelectedIndex = 0;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 7:
@@ -252,6 +287,9 @@ namespace AutomatedBot.View
                     cbbKeyThree.SelectedIndex = 0;
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = true;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = false;
                     break;
 
                 case 8:
@@ -271,7 +309,23 @@ namespace AutomatedBot.View
                     cbbKeyThree.SelectedIndex = 0;
                     pnlCondition.Enabled = true;
                     btnColorCondition.Enabled = false;
+                    cbbValueInput.Enabled = false;
+                    cbbValueInput.SelectedIndex = 0;
+                    cbbNextStage.Enabled = true;
                     break;
+            }
+        }
+
+        private void ValueInputChanged(object sender, EventArgs e)
+        {
+            if (cbbValueInput.SelectedIndex > 0)
+            {
+                txtWrite.Enabled = false;
+                txtWrite.Text = "";
+            }
+            else
+            {
+                txtWrite.Enabled = true;
             }
         }
     }

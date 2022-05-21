@@ -16,5 +16,15 @@ namespace AutomatedBot.View
         {
             InitializeComponent();
         }
+
+        private void Done(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Save(object sender, EventArgs e)
+        {
+
+        }
     }
 }
