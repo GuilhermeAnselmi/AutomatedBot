@@ -86,6 +86,11 @@
             this.btnUnselectedList = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.cbbNextStageFalse = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbbRoutineTimeout = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtTimeout = new System.Windows.Forms.NumericUpDown();
+            this.btnClearPanel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtR)).BeginInit();
@@ -94,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWait)).BeginInit();
             this.pnlCondition.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTimeout)).BeginInit();
             this.SuspendLayout();
             // 
             // lstAllStages
@@ -379,7 +385,7 @@
             // txtWrite
             // 
             this.txtWrite.Enabled = false;
-            this.txtWrite.Location = new System.Drawing.Point(12, 337);
+            this.txtWrite.Location = new System.Drawing.Point(225, 229);
             this.txtWrite.Name = "txtWrite";
             this.txtWrite.Size = new System.Drawing.Size(174, 23);
             this.txtWrite.TabIndex = 52;
@@ -389,7 +395,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 319);
+            this.label2.Location = new System.Drawing.Point(225, 211);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 53;
@@ -639,7 +645,7 @@
             this.cbbValueInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbValueInput.Enabled = false;
             this.cbbValueInput.FormattingEnabled = true;
-            this.cbbValueInput.Location = new System.Drawing.Point(12, 384);
+            this.cbbValueInput.Location = new System.Drawing.Point(225, 276);
             this.cbbValueInput.Name = "cbbValueInput";
             this.cbbValueInput.Size = new System.Drawing.Size(158, 23);
             this.cbbValueInput.TabIndex = 69;
@@ -650,7 +656,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(12, 366);
+            this.label17.Location = new System.Drawing.Point(225, 258);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(97, 15);
             this.label17.TabIndex = 70;
@@ -664,6 +670,7 @@
             this.btnEdit.TabIndex = 71;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.EditStage);
             // 
             // btnRemove
             // 
@@ -673,6 +680,7 @@
             this.btnRemove.TabIndex = 72;
             this.btnRemove.Text = "Excluir";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.RemoveStage);
             // 
             // btnUnselectedList
             // 
@@ -706,6 +714,65 @@
             this.cbbNextStageFalse.Size = new System.Drawing.Size(174, 23);
             this.cbbNextStageFalse.TabIndex = 74;
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(12, 366);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(110, 15);
+            this.label19.TabIndex = 77;
+            this.label19.Text = "Rotina de Timeout";
+            // 
+            // cbbRoutineTimeout
+            // 
+            this.cbbRoutineTimeout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRoutineTimeout.Enabled = false;
+            this.cbbRoutineTimeout.FormattingEnabled = true;
+            this.cbbRoutineTimeout.Location = new System.Drawing.Point(12, 384);
+            this.cbbRoutineTimeout.Name = "cbbRoutineTimeout";
+            this.cbbRoutineTimeout.Size = new System.Drawing.Size(158, 23);
+            this.cbbRoutineTimeout.TabIndex = 76;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(12, 313);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(122, 15);
+            this.label20.TabIndex = 79;
+            this.label20.Text = "Tempo para Timeout";
+            // 
+            // txtTimeout
+            // 
+            this.txtTimeout.Location = new System.Drawing.Point(12, 331);
+            this.txtTimeout.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.txtTimeout.Name = "txtTimeout";
+            this.txtTimeout.Size = new System.Drawing.Size(84, 23);
+            this.txtTimeout.TabIndex = 78;
+            this.txtTimeout.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // btnClearPanel
+            // 
+            this.btnClearPanel.Location = new System.Drawing.Point(12, 580);
+            this.btnClearPanel.Name = "btnClearPanel";
+            this.btnClearPanel.Size = new System.Drawing.Size(132, 23);
+            this.btnClearPanel.TabIndex = 80;
+            this.btnClearPanel.Text = "Limpar Painel";
+            this.btnClearPanel.UseVisualStyleBackColor = true;
+            this.btnClearPanel.Click += new System.EventHandler(this.ClearPanel);
+            // 
             // PanelRoutine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -713,6 +780,11 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.btnClearPanel);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.txtTimeout);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.cbbRoutineTimeout);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.cbbNextStageFalse);
             this.Controls.Add(this.btnUnselectedList);
@@ -776,6 +848,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtWait)).EndInit();
             this.pnlCondition.ResumeLayout(false);
             this.pnlCondition.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTimeout)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -841,5 +914,10 @@
         private CheckBox ckbConditionOne;
         private Label label18;
         private ComboBox cbbNextStageFalse;
+        private Label label19;
+        private ComboBox cbbRoutineTimeout;
+        private Label label20;
+        private NumericUpDown txtTimeout;
+        private Button btnClearPanel;
     }
 }

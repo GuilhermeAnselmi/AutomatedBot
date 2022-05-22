@@ -42,20 +42,20 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.execuçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arquivosTemporariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.limparToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstRoutine = new System.Windows.Forms.ListBox();
             this.btnAddRoutine = new System.Windows.Forms.Button();
-            this.lstTimeout = new System.Windows.Forms.ListBox();
-            this.btnAddTimeout = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.rotinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.timeoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.adicionarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.exceçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.executarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arquivosTemporariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.limparToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -142,8 +142,9 @@
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // execuçãoToolStripMenuItem
             // 
@@ -153,9 +154,26 @@
             // 
             // configuraçõesToolStripMenuItem
             // 
+            this.configuraçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivosTemporariosToolStripMenuItem});
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
             this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
+            // 
+            // arquivosTemporariosToolStripMenuItem
+            // 
+            this.arquivosTemporariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.limparToolStripMenuItem});
+            this.arquivosTemporariosToolStripMenuItem.Name = "arquivosTemporariosToolStripMenuItem";
+            this.arquivosTemporariosToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.arquivosTemporariosToolStripMenuItem.Text = "Arquivos Temporarios";
+            // 
+            // limparToolStripMenuItem
+            // 
+            this.limparToolStripMenuItem.Name = "limparToolStripMenuItem";
+            this.limparToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.limparToolStripMenuItem.Text = "Limpar";
+            this.limparToolStripMenuItem.Click += new System.EventHandler(this.ClearTempFiles);
             // 
             // lstRoutine
             // 
@@ -179,37 +197,17 @@
             this.btnAddRoutine.UseVisualStyleBackColor = true;
             this.btnAddRoutine.Click += new System.EventHandler(this.OpenAddRoutine);
             // 
-            // lstTimeout
-            // 
-            this.lstTimeout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lstTimeout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lstTimeout.ForeColor = System.Drawing.Color.White;
-            this.lstTimeout.FormattingEnabled = true;
-            this.lstTimeout.ItemHeight = 15;
-            this.lstTimeout.Location = new System.Drawing.Point(273, 75);
-            this.lstTimeout.Name = "lstTimeout";
-            this.lstTimeout.Size = new System.Drawing.Size(206, 572);
-            this.lstTimeout.TabIndex = 3;
-            // 
-            // btnAddTimeout
-            // 
-            this.btnAddTimeout.Location = new System.Drawing.Point(353, 46);
-            this.btnAddTimeout.Name = "btnAddTimeout";
-            this.btnAddTimeout.Size = new System.Drawing.Size(126, 23);
-            this.btnAddTimeout.TabIndex = 4;
-            this.btnAddTimeout.Text = "Adicionar Timeout";
-            this.btnAddTimeout.UseVisualStyleBackColor = true;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rotinasToolStripMenuItem,
-            this.timeoutToolStripMenuItem1,
             this.exceçõesToolStripMenuItem,
             this.toolStripSeparator2,
-            this.executarToolStripMenuItem});
+            this.executarToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.arquivosTemporariosToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(120, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(190, 104);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // rotinasToolStripMenuItem
@@ -235,27 +233,6 @@
             this.listarToolStripMenuItem2.Text = "Listar";
             this.listarToolStripMenuItem2.Click += new System.EventHandler(this.ListAllRoutines);
             // 
-            // timeoutToolStripMenuItem1
-            // 
-            this.timeoutToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adicionarToolStripMenuItem1,
-            this.listarToolStripMenuItem3});
-            this.timeoutToolStripMenuItem1.Name = "timeoutToolStripMenuItem1";
-            this.timeoutToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
-            this.timeoutToolStripMenuItem1.Text = "Timeout";
-            // 
-            // adicionarToolStripMenuItem1
-            // 
-            this.adicionarToolStripMenuItem1.Name = "adicionarToolStripMenuItem1";
-            this.adicionarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
-            this.adicionarToolStripMenuItem1.Text = "Adicionar";
-            // 
-            // listarToolStripMenuItem3
-            // 
-            this.listarToolStripMenuItem3.Name = "listarToolStripMenuItem3";
-            this.listarToolStripMenuItem3.Size = new System.Drawing.Size(125, 22);
-            this.listarToolStripMenuItem3.Text = "Listar";
-            // 
             // exceçõesToolStripMenuItem
             // 
             this.exceçõesToolStripMenuItem.Name = "exceçõesToolStripMenuItem";
@@ -273,6 +250,26 @@
             this.executarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.executarToolStripMenuItem.Text = "Executar";
             // 
+            // arquivosTemporariosToolStripMenuItem1
+            // 
+            this.arquivosTemporariosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.limparToolStripMenuItem1});
+            this.arquivosTemporariosToolStripMenuItem1.Name = "arquivosTemporariosToolStripMenuItem1";
+            this.arquivosTemporariosToolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
+            this.arquivosTemporariosToolStripMenuItem1.Text = "Arquivos Temporarios";
+            // 
+            // limparToolStripMenuItem1
+            // 
+            this.limparToolStripMenuItem1.Name = "limparToolStripMenuItem1";
+            this.limparToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.limparToolStripMenuItem1.Text = "Limpar";
+            this.limparToolStripMenuItem1.Click += new System.EventHandler(this.ClearTempFiles);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(186, 6);
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -281,8 +278,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(934, 661);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.btnAddTimeout);
-            this.Controls.Add(this.lstTimeout);
             this.Controls.Add(this.btnAddRoutine);
             this.Controls.Add(this.lstRoutine);
             this.Controls.Add(this.menuStrip1);
@@ -314,21 +309,21 @@
         private ToolStripMenuItem configuraçõesToolStripMenuItem;
         private ListBox lstRoutine;
         private Button btnAddRoutine;
-        private ListBox lstTimeout;
-        private Button btnAddTimeout;
         private ToolStripMenuItem listarToolStripMenuItem;
         private ToolStripMenuItem listarToolStripMenuItem1;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem rotinasToolStripMenuItem;
         private ToolStripMenuItem adicionarToolStripMenuItem;
         private ToolStripMenuItem listarToolStripMenuItem2;
-        private ToolStripMenuItem timeoutToolStripMenuItem1;
-        private ToolStripMenuItem adicionarToolStripMenuItem1;
-        private ToolStripMenuItem listarToolStripMenuItem3;
         private ToolStripMenuItem exceçõesToolStripMenuItem;
         private ToolStripMenuItem adicionarToolStripMenuItem2;
         private ToolStripMenuItem adicionarToolStripMenuItem3;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem executarToolStripMenuItem;
+        private ToolStripMenuItem arquivosTemporariosToolStripMenuItem;
+        private ToolStripMenuItem limparToolStripMenuItem;
+        private ToolStripMenuItem arquivosTemporariosToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripMenuItem limparToolStripMenuItem1;
     }
 }

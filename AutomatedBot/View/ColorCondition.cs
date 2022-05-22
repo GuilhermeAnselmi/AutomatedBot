@@ -1,5 +1,6 @@
 ﻿using AutomatedBot.Control.Data;
 using AutomatedBot.Engine.Model;
+using KlusterG.AutoGui;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,23 @@ namespace AutomatedBot.View
 
         private void ColorCondition_Load(object sender, EventArgs e)
         {
+            cbbRoutineOne.Items.Add("-");
+            cbbRoutineTwo.Items.Add("-");
+            cbbRoutineThree.Items.Add("-");
+
+            cbbRoutineOne.SelectedIndex = 0;
+            cbbRoutineTwo.SelectedIndex = 0;
+            cbbRoutineThree.SelectedIndex = 0;
+
+            List<Routine> routines = JsonDb.GetAllRoutines();
+
+            foreach (Routine routine in routines)
+            {
+                cbbRoutineOne.Items.Add(routine.Name);
+                cbbRoutineTwo.Items.Add(routine.Name);
+                cbbRoutineThree.Items.Add(routine.Name);
+            }
+
             var response = JsonDb.ReadTempFile(NameTemp);
 
             if (response.Item1)
@@ -42,7 +60,7 @@ namespace AutomatedBot.View
                         txtGOne.Text = wcc[0].G.ToString();
                         txtBOne.Text = wcc[0].B.ToString();
                         txtAOne.Text = wcc[0].A.ToString();
-                        cbbRooutineOne.SelectedText = wcc[0].NextRoutine;
+                        cbbRoutineOne.SelectedIndex = cbbRoutineOne.FindStringExact(wcc[0].NextRoutine);
                     }
 
                     if (wcc.Count > 1)
@@ -54,7 +72,7 @@ namespace AutomatedBot.View
                         txtGTwo.Text = wcc[1].G.ToString();
                         txtBTwo.Text = wcc[1].B.ToString();
                         txtATwo.Text = wcc[1].A.ToString();
-                        cbbRooutineTwo.SelectedText = wcc[1].NextRoutine;
+                        cbbRoutineTwo.SelectedIndex = cbbRoutineTwo.FindStringExact(wcc[1].NextRoutine);
                     }
 
                     if (wcc.Count > 2)
@@ -66,7 +84,7 @@ namespace AutomatedBot.View
                         txtGThree.Text = wcc[2].G.ToString();
                         txtBThree.Text = wcc[2].B.ToString();
                         txtAThree.Text = wcc[2].A.ToString();
-                        cbbRooutineThree.SelectedText = wcc[2].NextRoutine;
+                        cbbRoutineThree.SelectedIndex = cbbRoutineThree.FindStringExact(wcc[2].NextRoutine);
                     }
                 }
             }
@@ -83,6 +101,8 @@ namespace AutomatedBot.View
 
         private void Save(object sender, EventArgs e)
         {
+            bool success = true;
+
             List<WaitColorsCondition> wcc = new List<WaitColorsCondition>();
 
             if (ckbModuleOne.Checked)
@@ -95,8 +115,10 @@ namespace AutomatedBot.View
                     G = int.Parse(txtGOne.Text),
                     B = int.Parse(txtBOne.Text),
                     A = int.Parse(txtAOne.Text),
-                    NextRoutine = cbbRooutineOne.Text,
+                    NextRoutine = cbbRoutineOne.Text,
                 });
+
+                if (cbbRoutineOne.SelectedIndex == 0) success = false;
             }
 
             if (ckbModuleTwo.Checked)
@@ -109,8 +131,10 @@ namespace AutomatedBot.View
                     G = int.Parse(txtGTwo.Text),
                     B = int.Parse(txtBTwo.Text),
                     A = int.Parse(txtATwo.Text),
-                    NextRoutine = cbbRooutineTwo.Text,
+                    NextRoutine = cbbRoutineTwo.Text,
                 });
+
+                if (cbbRoutineTwo.SelectedIndex == 0) success = false;
             }
 
             if (ckbModuleThree.Checked)
@@ -123,19 +147,78 @@ namespace AutomatedBot.View
                     G = int.Parse(txtGThree.Text),
                     B = int.Parse(txtBThree.Text),
                     A = int.Parse(txtAThree.Text),
-                    NextRoutine = cbbRooutineThree.Text,
+                    NextRoutine = cbbRoutineThree.Text,
                 });
+
+                if (cbbRoutineThree.SelectedIndex == 0) success = false;
             }
 
-            bool verify = JsonDb.WriteTempFile(NameTemp, JsonConvert.SerializeObject(wcc));
-
-            if (verify)
+            if (success)
             {
-                this.Close();
+                bool verify = JsonDb.WriteTempFile(NameTemp, JsonConvert.SerializeObject(wcc));
+
+                if (verify)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao gravar dados, arquivo temporario não foi encontrado ou está inacessivel", "Erro", MessageBoxButtons.OK);
+                }
             }
             else
             {
-                MessageBox.Show("Erro ao gravar dados, arquivo temporario não foi encontrado ou está inacessivel", "Erro", MessageBoxButtons.OK);
+                MessageBox.Show("Uma rotina deve ser definida para cada condição ativa", "Não Salvo", MessageBoxButtons.OK);
+            }
+        }
+
+        private void GetValues(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pressione K para gravar posição\nPressione O para voltar", "Pegar Valores do Cursor", MessageBoxButtons.OK);
+
+            while (true)
+            {
+                if (Exec.GetKeyPress().Item2 == "K")
+                {
+                    break;
+                }
+            }
+
+            Mouse mouse = Exec.GetCursorPosition();
+
+            string name = ((Button)sender).Name;
+
+            switch (name)
+            {
+                case "btnGetValuesOne":
+                    txtXOne.Text = mouse.X.ToString();
+                    txtYOne.Text = mouse.Y.ToString();
+
+                    txtROne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+                    txtGOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+                    txtBOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+                    txtAOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+                    break;
+
+                case "btnGetValuesTwo":
+                    txtXTwo.Text = mouse.X.ToString();
+                    txtYTwo.Text = mouse.Y.ToString();
+                    
+                    txtRTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+                    txtGTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+                    txtBTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+                    txtATwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+                    break;
+
+                case "btnGetValuesThree":
+                    txtXThree.Text = mouse.X.ToString();
+                    txtYThree.Text = mouse.Y.ToString();
+                    
+                    txtRThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+                    txtGThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+                    txtBThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+                    txtAThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+                    break;
             }
         }
     }

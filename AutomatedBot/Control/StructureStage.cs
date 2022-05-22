@@ -1,12 +1,16 @@
-﻿using AutomatedBot.Engine.Model;
+﻿using AutomatedBot.Control.Data;
+using AutomatedBot.Engine.Model;
 using KlusterG.AutoGui;
 using KlusterG.AutoGui.InternalKeys;
+using Newtonsoft.Json;
 
 namespace AutomatedBot.Control
 {
     internal class StructureStage
     {
         private Routine _routine;
+
+        private int InsertIndex;
 
         private string Name;
         private string Comment;
@@ -28,10 +32,14 @@ namespace AutomatedBot.Control
         private PixelColor _pixelColor;
         private List<WaitColorsCondition> _colorsCondition;
         private List<Condition> _conditions;
+        private TimeoutRoutine _timeout;
 
-        public StructureStage(Routine routine, string name, string comment, int x, int y, bool move, double wait)
+        public StructureStage(Routine routine, string name, string comment, int x, int y, bool move, double wait, int insertIndex = -1)
         {
             _routine = routine;
+
+            InsertIndex = insertIndex;
+
             Name = name;
             Comment = comment;
             X = x;
@@ -46,6 +54,7 @@ namespace AutomatedBot.Control
             _pixelColor = new PixelColor();
             _colorsCondition = new List<WaitColorsCondition>();
             _conditions = new List<Condition>();
+            _timeout = new TimeoutRoutine();
         }
 
         private void Create()
@@ -67,6 +76,7 @@ namespace AutomatedBot.Control
                 PColor = _pixelColor,
                 ColorsCondition = _colorsCondition,
                 Conditions = _conditions,
+                Timeout = _timeout,
                 NextStageTrue = this.NextStageTrue,
                 NextStageFalse = this.NextStageFalse,
                 CommandLine = this.Command,
@@ -74,12 +84,39 @@ namespace AutomatedBot.Control
 
             if (_routine.Stage != null)
             {
-                _routine.Stage.Add(_stage);
+                if (_routine.Stage.Where(x => x.Name == this.Name).Any())
+                {
+                    _routine.Stage.Where(x => x.Name == this.Name).First().Comment = this.Comment;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().Function = this.Function;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().Procedure = _procedure;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().PColor = _pixelColor;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().ColorsCondition = _colorsCondition;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().Conditions = _conditions;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().Timeout = _timeout;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().NextStageTrue = this.NextStageTrue;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().NextStageFalse = this.NextStageFalse;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().CommandLine = this.Command;
+                }
+                else
+                {
+                    if (InsertIndex >= 0)
+                    {
+                        _routine.Stage.Insert(InsertIndex, _stage);
+                    }
+                    else
+                    {
+                        _routine.Stage.Add(_stage);
+                    }
+                }
             }
             else
             {
                 _routine.Stage = new List<Stage>() { _stage };
             }
+
+            string json = JsonConvert.SerializeObject(_routine);
+
+            JsonDb.RewriteObject(_routine.FileName, json);
         }
 
         private void DefineMouse(MouseAction action = MouseAction.None, MKeys key = MKeys.Left)
@@ -106,8 +143,19 @@ namespace AutomatedBot.Control
             };
         }
 
+        private void DefineTimeout(int timeout, string routineTimeout)
+        {
+            _timeout = new TimeoutRoutine()
+            {
+                Timeout = timeout,
+                RoutineTimeout = routineTimeout == "-" ? null : routineTimeout,
+            };
+        }
+
         public void SimpleClick(bool simpleClick)
         {
+            Function = "SimpleClick";
+
             if (simpleClick)
             {
                 DefineMouse(MouseAction.Click);
@@ -122,6 +170,8 @@ namespace AutomatedBot.Control
 
         public void RightClick()
         {
+            Function = "RightClick";
+
             DefineMouse(MouseAction.Click, MKeys.Right);
 
             Create();
@@ -129,6 +179,8 @@ namespace AutomatedBot.Control
 
         public void DoubleClick()
         {
+            Function = "DoubleClick";
+
             DefineMouse(MouseAction.Double);
 
             Create();
@@ -136,6 +188,8 @@ namespace AutomatedBot.Control
 
         public void Write(bool simpleClick, string text)
         {
+            Function = "Write";
+
             if (simpleClick)
             {
                 DefineMouse(MouseAction.Click);
@@ -152,6 +206,8 @@ namespace AutomatedBot.Control
 
         public void ClickKey(bool simpleClick, int keyOne, int keyTwo, int keyThree)
         {
+            Function = "ClickKey";
+
             if (simpleClick)
             {
                 DefineMouse(MouseAction.Click);
@@ -168,6 +224,8 @@ namespace AutomatedBot.Control
 
         public void PressKey(bool simpleClick, int keyOne, int keyTwo, int keyThree)
         {
+            Function = "PressKey";
+
             if (simpleClick)
             {
                 DefineMouse(MouseAction.Click);
@@ -184,6 +242,8 @@ namespace AutomatedBot.Control
 
         public void ReleaseKey(bool simpleClick, int keyOne, int keyTwo, int keyThree)
         {
+            Function = "ReleaseKey";
+
             if (simpleClick)
             {
                 DefineMouse(MouseAction.Click);
@@ -198,34 +258,52 @@ namespace AutomatedBot.Control
             Create();
         }
 
-        public void WaitColor(PixelColor color)
+        public void WaitColor(PixelColor color, int timeout, string routineTimeout)
         {
+            Function = "WaitColor";
+
             _pixelColor = color;
+
+            DefineTimeout(timeout, routineTimeout);
 
             DefineMouse();
 
             Create();
         }
 
-        public void WaitColorCondition(List<WaitColorsCondition> conditions)
+        public void WaitColorCondition(List<WaitColorsCondition> conditions, int timeout, string routineTimeout)
         {
+            Function = "WaitColorCondition";
+
             _colorsCondition = conditions;
+
+            DefineTimeout(timeout, routineTimeout);
+
+            DefineMouse();
 
             Create();
         }
 
         public void Condition(List<Condition> conditions, string nextStageTrue, string nextStageFalse)
         {
+            Function = "Condition";
+
             _conditions = conditions;
             NextStageTrue = nextStageTrue;
             NextStageFalse = nextStageFalse;
+
+            DefineMouse();
 
             Create();
         }
 
         public void CommandLine(string text)
         {
+            Function = "CommandLine";
+
             Command = text;
+
+            DefineMouse();
 
             Create();
         }

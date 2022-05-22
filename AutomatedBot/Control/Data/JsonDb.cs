@@ -48,6 +48,27 @@ namespace AutomatedBot.Control.Data
             }
         }
 
+        public static Tuple<bool, string> RewriteObject(string fileName, string json)
+        {
+            try
+            {
+                if (File.Exists(Path + fileName))
+                {
+                    File.WriteAllText(Path + fileName, json);
+
+                    return new Tuple<bool, string>(true, null);
+                }
+                else
+                {
+                    return new Tuple<bool, string>(false, $"Erro: Arquivo não localizado");
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Tuple<bool, string>(false, $"Error: {ex}");
+            }
+        }
+
         public static List<Routine> GetAllRoutines()
         {
             List<Routine> routines = new List<Routine>();
@@ -75,6 +96,37 @@ namespace AutomatedBot.Control.Data
             return routine;
         }
 
+        public static List<Stage> GetAllStages(string routineName)
+        {
+            List<Stage> stages = GetRoutine(routineName).Stage;
+
+            return stages;
+        }
+
+        public static Stage GetStage(string routineName, string stageName)
+        {
+            Stage stage = GetRoutine(routineName).Stage.Where(x => x.Name == stageName).FirstOrDefault();
+
+            return stage;
+        }
+
+        public static bool RemoveStage(string routineName, string fileName, string stageName)
+        {
+            Routine routine = GetRoutine(routineName);
+
+            routine.Stage.Remove(routine.Stage.Where(x => x.Name == stageName).First());
+
+            if (File.Exists(Path + fileName))
+            {
+                File.WriteAllText(Path + fileName, JsonConvert.SerializeObject(routine));
+
+                return true;
+            }
+
+            return false;
+        }
+
+        #region Params Inicialization
         public static Tuple<bool, string> SaveParamInicialization(string routineName, object jsonParams)
         {
             try
@@ -130,7 +182,9 @@ namespace AutomatedBot.Control.Data
 
             return json;
         }
+        #endregion
 
+        #region Temp
         public static void CreateTempFile(string nameTemp)
         {
             string fineName = nameTemp + ".temp";
@@ -173,5 +227,36 @@ namespace AutomatedBot.Control.Data
                 return false;
             }
         }
+
+        public static void DeleteTempFile(string nameTemp)
+        {
+            string fileName = nameTemp + ".temp";
+
+            if (File.Exists(TempPath + fileName))
+            {
+                File.Delete(TempPath + fileName);
+            }
+        }
+
+        public static bool ClearTempFiles()
+        {
+            if (Directory.Exists(TempPath))
+            {
+                bool verify = false;
+                string[] files = Directory.GetFiles(TempPath);
+
+                foreach (string file in files)
+                {
+                    File.Delete(file);
+
+                    verify = true;
+                }
+
+                if (verify) return true;
+            }
+
+            return false;
+        }
+        #endregion
     }
 }

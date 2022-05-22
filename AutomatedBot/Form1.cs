@@ -58,5 +58,26 @@ namespace AutomatedBot
             form.Closed += (s, args) => this.Show();
             form.Show();
         }
+
+        private void ClearTempFiles(object sender, EventArgs e)
+        {
+            bool result = JsonDb.ClearTempFiles();
+
+            if (result)
+            {
+                MessageBox.Show("Arquivos temporarios removidos", "Sucesso!", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Arquivos temporarios não encontrados", "Não Encontrados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            JsonDb.ClearTempFiles();
+
+            this.Close();
+        }
     }
 }

@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cbbRooutineOne = new System.Windows.Forms.ComboBox();
+            this.btnGetValuesOne = new System.Windows.Forms.Button();
+            this.cbbRoutineOne = new System.Windows.Forms.ComboBox();
             this.txtAOne = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.txtBOne = new System.Windows.Forms.NumericUpDown();
@@ -44,7 +45,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ckbModuleOne = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cbbRooutineTwo = new System.Windows.Forms.ComboBox();
+            this.btnGetValuesTwo = new System.Windows.Forms.Button();
+            this.cbbRoutineTwo = new System.Windows.Forms.ComboBox();
             this.txtATwo = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.txtBTwo = new System.Windows.Forms.NumericUpDown();
@@ -59,7 +61,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ckbModuleTwo = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cbbRooutineThree = new System.Windows.Forms.ComboBox();
+            this.btnGetValuesThree = new System.Windows.Forms.Button();
+            this.cbbRoutineThree = new System.Windows.Forms.ComboBox();
             this.txtAThree = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBThree = new System.Windows.Forms.NumericUpDown();
@@ -100,7 +103,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.cbbRooutineOne);
+            this.panel1.Controls.Add(this.btnGetValuesOne);
+            this.panel1.Controls.Add(this.cbbRoutineOne);
             this.panel1.Controls.Add(this.txtAOne);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtBOne);
@@ -119,14 +123,24 @@
             this.panel1.Size = new System.Drawing.Size(439, 141);
             this.panel1.TabIndex = 0;
             // 
-            // cbbRooutineOne
+            // btnGetValuesOne
             // 
-            this.cbbRooutineOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbRooutineOne.FormattingEnabled = true;
-            this.cbbRooutineOne.Location = new System.Drawing.Point(315, 61);
-            this.cbbRooutineOne.Name = "cbbRooutineOne";
-            this.cbbRooutineOne.Size = new System.Drawing.Size(121, 23);
-            this.cbbRooutineOne.TabIndex = 13;
+            this.btnGetValuesOne.Location = new System.Drawing.Point(315, 31);
+            this.btnGetValuesOne.Name = "btnGetValuesOne";
+            this.btnGetValuesOne.Size = new System.Drawing.Size(121, 23);
+            this.btnGetValuesOne.TabIndex = 14;
+            this.btnGetValuesOne.Text = "Pegar Valores";
+            this.btnGetValuesOne.UseVisualStyleBackColor = true;
+            this.btnGetValuesOne.Click += new System.EventHandler(this.GetValues);
+            // 
+            // cbbRoutineOne
+            // 
+            this.cbbRoutineOne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRoutineOne.FormattingEnabled = true;
+            this.cbbRoutineOne.Location = new System.Drawing.Point(315, 92);
+            this.cbbRoutineOne.Name = "cbbRoutineOne";
+            this.cbbRoutineOne.Size = new System.Drawing.Size(121, 23);
+            this.cbbRoutineOne.TabIndex = 13;
             // 
             // txtAOne
             // 
@@ -307,7 +321,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.cbbRooutineTwo);
+            this.panel2.Controls.Add(this.btnGetValuesTwo);
+            this.panel2.Controls.Add(this.cbbRoutineTwo);
             this.panel2.Controls.Add(this.txtATwo);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtBTwo);
@@ -326,14 +341,24 @@
             this.panel2.Size = new System.Drawing.Size(439, 141);
             this.panel2.TabIndex = 14;
             // 
-            // cbbRooutineTwo
+            // btnGetValuesTwo
             // 
-            this.cbbRooutineTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbRooutineTwo.FormattingEnabled = true;
-            this.cbbRooutineTwo.Location = new System.Drawing.Point(315, 61);
-            this.cbbRooutineTwo.Name = "cbbRooutineTwo";
-            this.cbbRooutineTwo.Size = new System.Drawing.Size(121, 23);
-            this.cbbRooutineTwo.TabIndex = 13;
+            this.btnGetValuesTwo.Location = new System.Drawing.Point(318, 31);
+            this.btnGetValuesTwo.Name = "btnGetValuesTwo";
+            this.btnGetValuesTwo.Size = new System.Drawing.Size(121, 23);
+            this.btnGetValuesTwo.TabIndex = 15;
+            this.btnGetValuesTwo.Text = "Pegar Valores";
+            this.btnGetValuesTwo.UseVisualStyleBackColor = true;
+            this.btnGetValuesTwo.Click += new System.EventHandler(this.GetValues);
+            // 
+            // cbbRoutineTwo
+            // 
+            this.cbbRoutineTwo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRoutineTwo.FormattingEnabled = true;
+            this.cbbRoutineTwo.Location = new System.Drawing.Point(315, 91);
+            this.cbbRoutineTwo.Name = "cbbRoutineTwo";
+            this.cbbRoutineTwo.Size = new System.Drawing.Size(121, 23);
+            this.cbbRoutineTwo.TabIndex = 13;
             // 
             // txtATwo
             // 
@@ -514,7 +539,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.cbbRooutineThree);
+            this.panel3.Controls.Add(this.btnGetValuesThree);
+            this.panel3.Controls.Add(this.cbbRoutineThree);
             this.panel3.Controls.Add(this.txtAThree);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.txtBThree);
@@ -533,14 +559,24 @@
             this.panel3.Size = new System.Drawing.Size(439, 141);
             this.panel3.TabIndex = 14;
             // 
-            // cbbRooutineThree
+            // btnGetValuesThree
             // 
-            this.cbbRooutineThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbRooutineThree.FormattingEnabled = true;
-            this.cbbRooutineThree.Location = new System.Drawing.Point(315, 61);
-            this.cbbRooutineThree.Name = "cbbRooutineThree";
-            this.cbbRooutineThree.Size = new System.Drawing.Size(121, 23);
-            this.cbbRooutineThree.TabIndex = 13;
+            this.btnGetValuesThree.Location = new System.Drawing.Point(318, 31);
+            this.btnGetValuesThree.Name = "btnGetValuesThree";
+            this.btnGetValuesThree.Size = new System.Drawing.Size(121, 23);
+            this.btnGetValuesThree.TabIndex = 16;
+            this.btnGetValuesThree.Text = "Pegar Valores";
+            this.btnGetValuesThree.UseVisualStyleBackColor = true;
+            this.btnGetValuesThree.Click += new System.EventHandler(this.GetValues);
+            // 
+            // cbbRoutineThree
+            // 
+            this.cbbRoutineThree.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRoutineThree.FormattingEnabled = true;
+            this.cbbRoutineThree.Location = new System.Drawing.Point(315, 92);
+            this.cbbRoutineThree.Name = "cbbRoutineThree";
+            this.cbbRoutineThree.Size = new System.Drawing.Size(121, 23);
+            this.cbbRoutineThree.TabIndex = 13;
             // 
             // txtAThree
             // 
@@ -789,7 +825,7 @@
         #endregion
 
         private Panel panel1;
-        private ComboBox cbbRooutineOne;
+        private ComboBox cbbRoutineOne;
         private NumericUpDown txtAOne;
         private Label label5;
         private NumericUpDown txtBOne;
@@ -804,7 +840,7 @@
         private Label label1;
         private CheckBox ckbModuleOne;
         private Panel panel2;
-        private ComboBox cbbRooutineTwo;
+        private ComboBox cbbRoutineTwo;
         private NumericUpDown txtATwo;
         private Label label7;
         private NumericUpDown txtBTwo;
@@ -819,7 +855,7 @@
         private Label label12;
         private CheckBox ckbModuleTwo;
         private Panel panel3;
-        private ComboBox cbbRooutineThree;
+        private ComboBox cbbRoutineThree;
         private NumericUpDown txtAThree;
         private Label label13;
         private NumericUpDown txtBThree;
@@ -835,5 +871,8 @@
         private CheckBox ckbModuleThree;
         private Button btnSave;
         private Button btnDone;
+        private Button btnGetValuesOne;
+        private Button btnGetValuesTwo;
+        private Button btnGetValuesThree;
     }
 }
