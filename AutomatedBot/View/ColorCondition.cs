@@ -176,49 +176,62 @@ namespace AutomatedBot.View
         {
             MessageBox.Show("Pressione K para gravar posição\nPressione O para voltar", "Pegar Valores do Cursor", MessageBoxButtons.OK);
 
+            bool get = true;
+
             while (true)
             {
-                if (Exec.GetKeyPress().Item2 == "K")
+                string key = Exec.GetKeyPress().Item2;
+
+                if (key == "K")
                 {
+                    break;
+                }
+
+                if (key == "O")
+                {
+                    get = false;
                     break;
                 }
             }
 
-            Mouse mouse = Exec.GetCursorPosition();
-
-            string name = ((Button)sender).Name;
-
-            switch (name)
+            if (get)
             {
-                case "btnGetValuesOne":
-                    txtXOne.Text = mouse.X.ToString();
-                    txtYOne.Text = mouse.Y.ToString();
+                Mouse mouse = Exec.GetCursorPosition();
 
-                    txtROne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
-                    txtGOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
-                    txtBOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
-                    txtAOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
-                    break;
+                string name = ((Button)sender).Name;
 
-                case "btnGetValuesTwo":
-                    txtXTwo.Text = mouse.X.ToString();
-                    txtYTwo.Text = mouse.Y.ToString();
-                    
-                    txtRTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
-                    txtGTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
-                    txtBTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
-                    txtATwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
-                    break;
+                switch (name)
+                {
+                    case "btnGetValuesOne":
+                        txtXOne.Text = mouse.X.ToString();
+                        txtYOne.Text = mouse.Y.ToString();
 
-                case "btnGetValuesThree":
-                    txtXThree.Text = mouse.X.ToString();
-                    txtYThree.Text = mouse.Y.ToString();
-                    
-                    txtRThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
-                    txtGThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
-                    txtBThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
-                    txtAThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
-                    break;
+                        txtROne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+                        txtGOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+                        txtBOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+                        txtAOne.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+                        break;
+
+                    case "btnGetValuesTwo":
+                        txtXTwo.Text = mouse.X.ToString();
+                        txtYTwo.Text = mouse.Y.ToString();
+
+                        txtRTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+                        txtGTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+                        txtBTwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+                        txtATwo.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+                        break;
+
+                    case "btnGetValuesThree":
+                        txtXThree.Text = mouse.X.ToString();
+                        txtYThree.Text = mouse.Y.ToString();
+
+                        txtRThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+                        txtGThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+                        txtBThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+                        txtAThree.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+                        break;
+                }
             }
         }
     }

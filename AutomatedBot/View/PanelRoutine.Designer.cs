@@ -91,6 +91,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.txtTimeout = new System.Windows.Forms.NumericUpDown();
             this.btnClearPanel = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cbbMarkConditional = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPosY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtR)).BeginInit();
@@ -298,7 +300,7 @@
             // 
             // txtWait
             // 
-            this.txtWait.Location = new System.Drawing.Point(12, 264);
+            this.txtWait.Location = new System.Drawing.Point(12, 276);
             this.txtWait.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -313,7 +315,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(12, 246);
+            this.label9.Location = new System.Drawing.Point(12, 258);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 15);
             this.label9.TabIndex = 23;
@@ -385,7 +387,7 @@
             // txtWrite
             // 
             this.txtWrite.Enabled = false;
-            this.txtWrite.Location = new System.Drawing.Point(225, 229);
+            this.txtWrite.Location = new System.Drawing.Point(225, 239);
             this.txtWrite.Name = "txtWrite";
             this.txtWrite.Size = new System.Drawing.Size(174, 23);
             this.txtWrite.TabIndex = 52;
@@ -395,7 +397,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(225, 211);
+            this.label2.Location = new System.Drawing.Point(225, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 53;
@@ -645,7 +647,7 @@
             this.cbbValueInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbValueInput.Enabled = false;
             this.cbbValueInput.FormattingEnabled = true;
-            this.cbbValueInput.Location = new System.Drawing.Point(225, 276);
+            this.cbbValueInput.Location = new System.Drawing.Point(225, 286);
             this.cbbValueInput.Name = "cbbValueInput";
             this.cbbValueInput.Size = new System.Drawing.Size(158, 23);
             this.cbbValueInput.TabIndex = 69;
@@ -656,7 +658,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(225, 258);
+            this.label17.Location = new System.Drawing.Point(225, 268);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(97, 15);
             this.label17.TabIndex = 70;
@@ -719,7 +721,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(12, 366);
+            this.label19.Location = new System.Drawing.Point(12, 357);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(110, 15);
             this.label19.TabIndex = 77;
@@ -730,7 +732,7 @@
             this.cbbRoutineTimeout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbRoutineTimeout.Enabled = false;
             this.cbbRoutineTimeout.FormattingEnabled = true;
-            this.cbbRoutineTimeout.Location = new System.Drawing.Point(12, 384);
+            this.cbbRoutineTimeout.Location = new System.Drawing.Point(12, 375);
             this.cbbRoutineTimeout.Name = "cbbRoutineTimeout";
             this.cbbRoutineTimeout.Size = new System.Drawing.Size(158, 23);
             this.cbbRoutineTimeout.TabIndex = 76;
@@ -773,6 +775,27 @@
             this.btnClearPanel.UseVisualStyleBackColor = true;
             this.btnClearPanel.Click += new System.EventHandler(this.ClearPanel);
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(12, 416);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(145, 15);
+            this.label21.TabIndex = 82;
+            this.label21.Text = "Marcar como condicional";
+            // 
+            // cbbMarkConditional
+            // 
+            this.cbbMarkConditional.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMarkConditional.Enabled = false;
+            this.cbbMarkConditional.FormattingEnabled = true;
+            this.cbbMarkConditional.Location = new System.Drawing.Point(12, 434);
+            this.cbbMarkConditional.Name = "cbbMarkConditional";
+            this.cbbMarkConditional.Size = new System.Drawing.Size(158, 23);
+            this.cbbMarkConditional.TabIndex = 81;
+            // 
             // PanelRoutine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -780,6 +803,8 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.cbbMarkConditional);
             this.Controls.Add(this.btnClearPanel);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.txtTimeout);
@@ -919,5 +944,7 @@
         private Label label20;
         private NumericUpDown txtTimeout;
         private Button btnClearPanel;
+        private Label label21;
+        private ComboBox cbbMarkConditional;
     }
 }

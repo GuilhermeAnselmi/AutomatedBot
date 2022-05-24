@@ -73,15 +73,19 @@ namespace AutomatedBot.Control.Data
         {
             List<Routine> routines = new List<Routine>();
 
-            string[] files = Directory.GetFiles(Path);
-
-            foreach (string file in files)
+            if (Directory.Exists(Path))
             {
-                Routine routine = new Routine();
 
-                routine = JsonConvert.DeserializeObject<Routine>(File.ReadAllText(file));
+                string[] files = Directory.GetFiles(Path);
 
-                routines.Add(routine);
+                foreach (string file in files)
+                {
+                    Routine routine = new Routine();
+
+                    routine = JsonConvert.DeserializeObject<Routine>(File.ReadAllText(file));
+
+                    routines.Add(routine);
+                }
             }
 
             return routines;
@@ -100,7 +104,7 @@ namespace AutomatedBot.Control.Data
         {
             List<Stage> stages = GetRoutine(routineName).Stage;
 
-            return stages;
+            return stages == null ? new List<Stage>() : stages;
         }
 
         public static Stage GetStage(string routineName, string stageName)
@@ -169,15 +173,18 @@ namespace AutomatedBot.Control.Data
         {
             List<ParamsInicialization> pi = new List<ParamsInicialization>();
 
-            pi = JsonConvert.DeserializeObject<List<ParamsInicialization>>(File.ReadAllText(InputParams));
-
-            ParamsInicialization obj = pi.Where(x => x.RoutineName == routineName).FirstOrDefault();
-
             string json = "";
 
-            if (obj != null)
+            if (Directory.Exists(Path + "\\Configs\\"))
             {
-                json = JsonConvert.SerializeObject(obj.InputParams);
+                pi = JsonConvert.DeserializeObject<List<ParamsInicialization>>(File.ReadAllText(InputParams));
+
+                ParamsInicialization obj = pi.Where(x => x.RoutineName == routineName).FirstOrDefault();
+
+                if (obj != null)
+                {
+                    json = JsonConvert.SerializeObject(obj.InputParams);
+                }
             }
 
             return json;

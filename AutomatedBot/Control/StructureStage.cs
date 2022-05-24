@@ -19,6 +19,7 @@ namespace AutomatedBot.Control
         private int Y;
         private bool Move;
         private double Wait;
+        private bool MarkConditional;
 
         private string NextStageTrue;
         private string NextStageFalse;
@@ -34,7 +35,8 @@ namespace AutomatedBot.Control
         private List<Condition> _conditions;
         private TimeoutRoutine _timeout;
 
-        public StructureStage(Routine routine, string name, string comment, int x, int y, bool move, double wait, int insertIndex = -1)
+        public StructureStage(Routine routine, string name, string comment, int x, int y, bool move, double wait,
+            int markConditional, int insertIndex = -1)
         {
             _routine = routine;
 
@@ -48,9 +50,10 @@ namespace AutomatedBot.Control
             Wait = wait;
             NextStageTrue = "";
             NextStageFalse = "";
+            MarkConditional = markConditional == 0 || markConditional == 1 ? true : false;
 
             _mouse = new Mouse() { Action = MouseAction.None };
-            _keyboard = null;
+            _keyboard = new Keyboard();
             _pixelColor = new PixelColor();
             _colorsCondition = new List<WaitColorsCondition>();
             _conditions = new List<Condition>();
@@ -72,6 +75,7 @@ namespace AutomatedBot.Control
                 Name = this.Name,
                 Comment = this.Comment,
                 Function = this.Function,
+                MarkConditional = this.MarkConditional,
                 Procedure = _procedure,
                 PColor = _pixelColor,
                 ColorsCondition = _colorsCondition,
@@ -88,6 +92,7 @@ namespace AutomatedBot.Control
                 {
                     _routine.Stage.Where(x => x.Name == this.Name).First().Comment = this.Comment;
                     _routine.Stage.Where(x => x.Name == this.Name).First().Function = this.Function;
+                    _routine.Stage.Where(x => x.Name == this.Name).First().MarkConditional = this.MarkConditional;
                     _routine.Stage.Where(x => x.Name == this.Name).First().Procedure = _procedure;
                     _routine.Stage.Where(x => x.Name == this.Name).First().PColor = _pixelColor;
                     _routine.Stage.Where(x => x.Name == this.Name).First().ColorsCondition = _colorsCondition;
@@ -131,7 +136,7 @@ namespace AutomatedBot.Control
             };
         }
 
-        private void DefineKeyboard(KeyboardAction action, int primary = 0, int secondary = 0, int tertiary = 0, string text = "")
+        private void DefineKeyboard(KeyboardAction action = KeyboardAction.Write, int primary = 0, int secondary = 0, int tertiary = 0, string text = "")
         {
             _keyboard = new Keyboard()
             {

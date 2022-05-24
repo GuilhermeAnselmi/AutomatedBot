@@ -14,6 +14,7 @@ namespace AutomatedBot.Engine.Model
         public string Name { get; set; }
         public string Comment { get; set; }
         public string Function { get; set; }
+        public bool MarkConditional { get; set; }
         public ModelProcedure Procedure { get; set; }
         public PixelColor PColor { get; set; }
         public List<WaitColorsCondition> ColorsCondition { get; set; }

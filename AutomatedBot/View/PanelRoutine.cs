@@ -77,6 +77,14 @@ namespace AutomatedBot.View
             }
             #endregion
 
+            #region cbbMarkConditional
+            cbbMarkConditional.Items.Clear();
+
+            cbbMarkConditional.Items.Add("-");
+            cbbMarkConditional.Items.Add("Se for Verdadeiro");
+            cbbMarkConditional.Items.Add("Se for Falso");
+            #endregion
+
             UpdateWindow();
         }
 
@@ -160,6 +168,8 @@ namespace AutomatedBot.View
 
             txtStageName.Text = "";
             txtComments.Text = "";
+
+            cbbMarkConditional.SelectedIndex = 0;
             #endregion
 
             txtWrite.Enabled = false;
@@ -174,25 +184,38 @@ namespace AutomatedBot.View
         {
             lblGetValue.Visible = true;
 
+            bool get = true;
+
             MessageBox.Show("Pressione K para gravar posição\nPressione O para voltar", "Pegar Valores do Cursor", MessageBoxButtons.OK);
 
             while (true)
             {
-                if (Exec.GetKeyPress().Item2 == "K")
+                string key = Exec.GetKeyPress().Item2;
+
+                if (key == "K")
                 {
+                    break;
+                }
+
+                if (key == "O")
+                {
+                    get = false;
                     break;
                 }
             }
 
-            Mouse mouse = Exec.GetCursorPosition();
+            if (get)
+            {
+                Mouse mouse = Exec.GetCursorPosition();
 
-            txtPosX.Text = mouse.X.ToString();
-            txtPosY.Text = mouse.Y.ToString();
+                txtPosX.Text = mouse.X.ToString();
+                txtPosY.Text = mouse.Y.ToString();
 
-            txtR.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
-            txtG.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
-            txtB.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
-            txtA.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+                txtR.Text = Exec.GetPixelColor(mouse.X, mouse.Y).R.ToString();
+                txtG.Text = Exec.GetPixelColor(mouse.X, mouse.Y).G.ToString();
+                txtB.Text = Exec.GetPixelColor(mouse.X, mouse.Y).B.ToString();
+                txtA.Text = Exec.GetPixelColor(mouse.X, mouse.Y).A.ToString();
+            }
 
             lblGetValue.Visible = false;
         }
@@ -536,7 +559,7 @@ namespace AutomatedBot.View
             int index = lstAllStages.SelectedIndex >= 0 ? lstAllStages.SelectedIndex : -1;
 
             StructureStage ss = new StructureStage(_routine, txtStageName.Text, txtComments.Text, int.Parse(txtPosX.Text),
-                        int.Parse(txtPosY.Text), ckbMoveMouse.Checked, int.Parse(txtWait.Text), index);
+                        int.Parse(txtPosY.Text), ckbMoveMouse.Checked, int.Parse(txtWait.Text), index, cbbMarkConditional.SelectedIndex);
 
             switch (cbbFunction.SelectedIndex)
             {
