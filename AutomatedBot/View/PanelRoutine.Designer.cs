@@ -72,8 +72,6 @@
             this.txtValueOne = new System.Windows.Forms.TextBox();
             this.cbbOperatorOne = new System.Windows.Forms.ComboBox();
             this.cbbConditionKeyOne = new System.Windows.Forms.ComboBox();
-            this.cbbNextStageTrue = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.btnColorCondition = new System.Windows.Forms.Button();
             this.txtStageName = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -84,8 +82,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnUnselectedList = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.cbbNextStageFalse = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.cbbRoutineTimeout = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -573,27 +569,6 @@
             this.cbbConditionKeyOne.Size = new System.Drawing.Size(121, 23);
             this.cbbConditionKeyOne.TabIndex = 0;
             // 
-            // cbbNextStageTrue
-            // 
-            this.cbbNextStageTrue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNextStageTrue.Enabled = false;
-            this.cbbNextStageTrue.FormattingEnabled = true;
-            this.cbbNextStageTrue.Location = new System.Drawing.Point(614, 434);
-            this.cbbNextStageTrue.Name = "cbbNextStageTrue";
-            this.cbbNextStageTrue.Size = new System.Drawing.Size(174, 23);
-            this.cbbNextStageTrue.TabIndex = 62;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(615, 416);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(105, 15);
-            this.label14.TabIndex = 63;
-            this.label14.Text = "Se for verdadeiro";
-            // 
             // btnColorCondition
             // 
             this.btnColorCondition.Enabled = false;
@@ -695,27 +670,6 @@
             this.btnUnselectedList.UseVisualStyleBackColor = true;
             this.btnUnselectedList.Click += new System.EventHandler(this.UnselectedList);
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(332, 416);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(70, 15);
-            this.label18.TabIndex = 75;
-            this.label18.Text = "Se for falso";
-            // 
-            // cbbNextStageFalse
-            // 
-            this.cbbNextStageFalse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbNextStageFalse.Enabled = false;
-            this.cbbNextStageFalse.FormattingEnabled = true;
-            this.cbbNextStageFalse.Location = new System.Drawing.Point(331, 434);
-            this.cbbNextStageFalse.Name = "cbbNextStageFalse";
-            this.cbbNextStageFalse.Size = new System.Drawing.Size(174, 23);
-            this.cbbNextStageFalse.TabIndex = 74;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -789,7 +743,6 @@
             // cbbMarkConditional
             // 
             this.cbbMarkConditional.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbMarkConditional.Enabled = false;
             this.cbbMarkConditional.FormattingEnabled = true;
             this.cbbMarkConditional.Location = new System.Drawing.Point(12, 434);
             this.cbbMarkConditional.Name = "cbbMarkConditional";
@@ -810,8 +763,6 @@
             this.Controls.Add(this.txtTimeout);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.cbbRoutineTimeout);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.cbbNextStageFalse);
             this.Controls.Add(this.btnUnselectedList);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);
@@ -822,8 +773,6 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtStageName);
             this.Controls.Add(this.btnColorCondition);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.cbbNextStageTrue);
             this.Controls.Add(this.pnlCondition);
             this.Controls.Add(this.lblGetValue);
             this.Controls.Add(this.label13);
@@ -923,8 +872,6 @@
         private ComboBox cbbOperatorTwo;
         private ComboBox cbbConditionKeyTwo;
         private ComboBox cbbLogicalOperatorOne;
-        private ComboBox cbbNextStageTrue;
-        private Label label14;
         private Button btnColorCondition;
         private TextBox txtStageName;
         private Label label15;
@@ -937,8 +884,6 @@
         private Button btnUnselectedList;
         private CheckBox ckbConditionTwo;
         private CheckBox ckbConditionOne;
-        private Label label18;
-        private ComboBox cbbNextStageFalse;
         private Label label19;
         private ComboBox cbbRoutineTimeout;
         private Label label20;

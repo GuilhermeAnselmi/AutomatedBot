@@ -41,11 +41,14 @@ namespace AutomatedBot.View
             cbbConditionKeyOne.Items.Add("-");
             cbbConditionKeyTwo.Items.Add("-");
 
-            foreach (var item in initialValues)
+            if (initialValues != null)
             {
-                cbbValueInput.Items.Add(item.Key);
-                cbbConditionKeyOne.Items.Add(item.Key);
-                cbbConditionKeyTwo.Items.Add(item.Key);
+                foreach (var item in initialValues)
+                {
+                    cbbValueInput.Items.Add(item.Key);
+                    cbbConditionKeyOne.Items.Add(item.Key);
+                    cbbConditionKeyTwo.Items.Add(item.Key);
+                }
             }
             #endregion
 
@@ -111,25 +114,13 @@ namespace AutomatedBot.View
 
             lstAllStages.Items.Clear();
 
-            cbbNextStageTrue.Items.Clear();
-            cbbNextStageFalse.Items.Clear();
-
             lstAllStages.Items.Add("-");
-
-            cbbNextStageTrue.Items.Add("-");
-            cbbNextStageFalse.Items.Add("-");
 
             List<Stage> stages = JsonDb.GetAllStages(_routine.Name);
 
             foreach (var stage in stages)
             {
                 lstAllStages.Items.Add(stage.Name);
-            }
-
-            foreach (var stage in stages)
-            {
-                cbbNextStageTrue.Items.Add(stage.Name);
-                cbbNextStageFalse.Items.Add(stage.Name);
             }
 
             #region Set All Default
@@ -162,9 +153,6 @@ namespace AutomatedBot.View
             txtValueOne.Text = "";
             txtValueTwo.Text = "";
             cbbLogicalOperatorOne.SelectedIndex = 0;
-
-            cbbNextStageTrue.SelectedIndex = 0;
-            cbbNextStageFalse.SelectedIndex = 0;
 
             txtStageName.Text = "";
             txtComments.Text = "";
@@ -252,8 +240,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -279,8 +265,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -306,8 +290,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -330,8 +312,6 @@ namespace AutomatedBot.View
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = true;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -353,8 +333,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -376,8 +354,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -399,8 +375,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -426,8 +400,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = true;
                     cbbRoutineTimeout.Enabled = true;
                     break;
@@ -451,8 +423,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = true;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = true;
                     cbbRoutineTimeout.Enabled = true;
                     break;
@@ -476,8 +446,6 @@ namespace AutomatedBot.View
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = false;
                     cbbValueInput.SelectedIndex = 0;
-                    cbbNextStageTrue.Enabled = true;
-                    cbbNextStageFalse.Enabled = true;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -501,8 +469,6 @@ namespace AutomatedBot.View
                     pnlCondition.Enabled = false;
                     btnColorCondition.Enabled = false;
                     cbbValueInput.Enabled = true;
-                    cbbNextStageTrue.Enabled = false;
-                    cbbNextStageFalse.Enabled = false;
                     txtTimeout.Enabled = false;
                     txtTimeout.Value = 30;
                     cbbRoutineTimeout.Enabled = false;
@@ -559,7 +525,8 @@ namespace AutomatedBot.View
             int index = lstAllStages.SelectedIndex >= 0 ? lstAllStages.SelectedIndex : -1;
 
             StructureStage ss = new StructureStage(_routine, txtStageName.Text, txtComments.Text, int.Parse(txtPosX.Text),
-                        int.Parse(txtPosY.Text), ckbMoveMouse.Checked, int.Parse(txtWait.Text), index, cbbMarkConditional.SelectedIndex);
+                        int.Parse(txtPosY.Text), ckbMoveMouse.Checked, int.Parse(txtWait.Text), 
+                        cbbMarkConditional.SelectedIndex, index);
 
             switch (cbbFunction.SelectedIndex)
             {
@@ -648,7 +615,7 @@ namespace AutomatedBot.View
                                     Value = txtValueTwo.Text,
                                 });
 
-                                ss.Condition(conditions, cbbNextStageTrue.SelectedItem.ToString(), cbbNextStageFalse.SelectedItem.ToString());
+                                ss.Condition(conditions);
                             }
                             else
                             {
@@ -658,7 +625,7 @@ namespace AutomatedBot.View
                         }
                         else
                         {
-                            ss.Condition(conditions, cbbNextStageTrue.SelectedItem.ToString(), cbbNextStageFalse.SelectedItem.ToString());
+                            ss.Condition(conditions);
                         }
                     }
                     else
@@ -760,8 +727,12 @@ namespace AutomatedBot.View
                     }
                 }
 
-                cbbNextStageTrue.SelectedIndex = cbbNextStageTrue.FindStringExact(stage.NextStageTrue);
-                cbbNextStageFalse.SelectedIndex = cbbNextStageFalse.FindStringExact(stage.NextStageFalse);
+                int markConditional = 0;
+                if (stage.MarkConditional == MarkConditional.None) markConditional = 0;
+                if (stage.MarkConditional == MarkConditional.True) markConditional = 1;
+                if (stage.MarkConditional == MarkConditional.False) markConditional = 2;
+
+                cbbMarkConditional.SelectedIndex = markConditional;
 
                 txtStageName.Text = stage.Name;
                 txtComments.Text = stage.Comment;

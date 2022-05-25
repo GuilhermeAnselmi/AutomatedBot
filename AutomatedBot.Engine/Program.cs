@@ -39,7 +39,7 @@ public class Program
 
         //Testing(routine, json);
 
-        routine = "Testing";
+        routine = "Test";
         json = "{" + "\"Name\":\"Guilherme\",\"Email\":\"guianselmi.sa@hotmail.com\",\"Age\":\"22\"," + "}";
 
         if (!string.IsNullOrEmpty(routine))

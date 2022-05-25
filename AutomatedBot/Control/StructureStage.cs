@@ -19,10 +19,8 @@ namespace AutomatedBot.Control
         private int Y;
         private bool Move;
         private double Wait;
-        private bool MarkConditional;
+        private MarkConditional MarkConditional;
 
-        private string NextStageTrue;
-        private string NextStageFalse;
         private string Command;
 
         private Stage _stage;
@@ -48,9 +46,16 @@ namespace AutomatedBot.Control
             Y = y;
             Move = move;
             Wait = wait;
-            NextStageTrue = "";
-            NextStageFalse = "";
-            MarkConditional = markConditional == 0 || markConditional == 1 ? true : false;
+            MarkConditional = MarkConditional.None;
+
+            if (markConditional == 1)
+            {
+                MarkConditional = MarkConditional.True;
+            }
+            else if (markConditional == 2)
+            {
+                MarkConditional = MarkConditional.False;
+            }
 
             _mouse = new Mouse() { Action = MouseAction.None };
             _keyboard = new Keyboard();
@@ -81,8 +86,6 @@ namespace AutomatedBot.Control
                 ColorsCondition = _colorsCondition,
                 Conditions = _conditions,
                 Timeout = _timeout,
-                NextStageTrue = this.NextStageTrue,
-                NextStageFalse = this.NextStageFalse,
                 CommandLine = this.Command,
             };
 
@@ -98,8 +101,6 @@ namespace AutomatedBot.Control
                     _routine.Stage.Where(x => x.Name == this.Name).First().ColorsCondition = _colorsCondition;
                     _routine.Stage.Where(x => x.Name == this.Name).First().Conditions = _conditions;
                     _routine.Stage.Where(x => x.Name == this.Name).First().Timeout = _timeout;
-                    _routine.Stage.Where(x => x.Name == this.Name).First().NextStageTrue = this.NextStageTrue;
-                    _routine.Stage.Where(x => x.Name == this.Name).First().NextStageFalse = this.NextStageFalse;
                     _routine.Stage.Where(x => x.Name == this.Name).First().CommandLine = this.Command;
                 }
                 else
@@ -289,13 +290,11 @@ namespace AutomatedBot.Control
             Create();
         }
 
-        public void Condition(List<Condition> conditions, string nextStageTrue, string nextStageFalse)
+        public void Condition(List<Condition> conditions)
         {
             Function = "Condition";
 
             _conditions = conditions;
-            NextStageTrue = nextStageTrue;
-            NextStageFalse = nextStageFalse;
 
             DefineMouse();
 
