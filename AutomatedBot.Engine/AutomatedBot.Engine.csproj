@@ -6,14 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>AutomatedBot.Engine</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Guilherme Marques</Authors>
     <Company>KlusterG</Company>
     <Product>Bot Engine</Product>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KlusterG.AutoGui" Version="1.1.1" />
+    <PackageReference Include="KlusterG.AutoGui" Version="1.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
