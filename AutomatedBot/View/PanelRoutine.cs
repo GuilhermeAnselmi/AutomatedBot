@@ -482,7 +482,7 @@ namespace AutomatedBot.View
             if (cbbValueInput.SelectedIndex > 0)
             {
                 txtWrite.ReadOnly = true;
-                txtWrite.Text = "?" + cbbValueInput.SelectedItem;
+                txtWrite.Text = "?" + cbbValueInput.SelectedItem + "?";
             }
             else
             {
@@ -697,15 +697,15 @@ namespace AutomatedBot.View
 
                 txtWait.Value = int.Parse(stage.Procedure.Wait.ToString());
 
-                if (stage.Procedure.Keyboard != null)
-                {
-                    cbbKeyOne.SelectedIndex = cbbKeyOne.FindStringExact(ConvertKey(stage.Procedure.Keyboard.PrimaryKey));
-                    cbbKeyTwo.SelectedIndex = cbbKeyTwo.FindStringExact(ConvertKey(stage.Procedure.Keyboard.SecondaryKey));
-                    cbbKeyThree.SelectedIndex = cbbKeyThree.FindStringExact(ConvertKey(stage.Procedure.Keyboard.TertiaryKey));
+                cbbKeyOne.SelectedIndex = cbbKeyOne.FindStringExact(ConvertKey(stage.Procedure.Keyboard.PrimaryKey));
+                cbbKeyTwo.SelectedIndex = cbbKeyTwo.FindStringExact(ConvertKey(stage.Procedure.Keyboard.SecondaryKey));
+                cbbKeyThree.SelectedIndex = cbbKeyThree.FindStringExact(ConvertKey(stage.Procedure.Keyboard.TertiaryKey));
 
+                if (stage.Function == "Write")
+                {
                     txtWrite.Text = stage.Procedure.Keyboard.Text;
                 }
-                else
+                else if (stage.Function == "CommandLine")
                 {
                     txtWrite.Text = stage.CommandLine;
                 }

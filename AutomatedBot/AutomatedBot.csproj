@@ -8,10 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PackageId>AutomatedBot</PackageId>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>Guilherme Marques</Authors>
     <Company>KlusterG</Company>
-    <Product>AutomatedBot</Product>
+    <Product>Automated Bot Panel</Product>
     <Description>Management panel and manipulation of automated bot routines</Description>
   </PropertyGroup>
 

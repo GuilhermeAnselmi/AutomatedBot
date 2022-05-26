@@ -12,7 +12,15 @@ public class Program
         string routine = "";
         string json = "{";
 
-        foreach (string arg in args)
+        string[] test = new string[3]
+        {
+            "Open WhatsApp",
+            "YourName:Gabrielle",
+            "Message:Eu te amo muito bb <3"
+        };
+
+
+        foreach (string arg in test)
         {
             try
             {
@@ -37,10 +45,8 @@ public class Program
 
         json += "}";
 
-        //Testing(routine, json);
-
-        routine = "Test";
-        json = "{" + "\"Name\":\"Guilherme\",\"Email\":\"guianselmi.sa@hotmail.com\",\"Age\":\"22\"," + "}";
+        //routine = "Open WhatsApp";
+        //json = "{" + "\"YourName\":\"Gabrielle\",\"Message\":\"Eu te amo muito bb <3\"" + "}";
 
         if (!string.IsNullOrEmpty(routine))
         {
@@ -121,16 +127,5 @@ public class Program
         {
             Console.WriteLine("O Debug esta ativo. Com o Debug ativo a etapa deve ser informada.");
         }
-    }
-
-    private static void Testing(string routine, string json)
-    {
-        Dictionary<string, string> obj = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-
-        //Console.WriteLine(obj);
-
-        Console.WriteLine(routine);
-
-        Console.WriteLine(obj.Keys.ToList()[0]);
     }
 }

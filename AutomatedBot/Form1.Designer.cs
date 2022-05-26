@@ -53,9 +53,10 @@
             this.exceçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.executarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.arquivosTemporariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.limparToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnRemoveRoutine = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -142,7 +143,7 @@
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -216,7 +217,7 @@
             this.adicionarToolStripMenuItem,
             this.listarToolStripMenuItem2});
             this.rotinasToolStripMenuItem.Name = "rotinasToolStripMenuItem";
-            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.rotinasToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.rotinasToolStripMenuItem.Text = "Rotina";
             // 
             // adicionarToolStripMenuItem
@@ -236,19 +237,24 @@
             // exceçõesToolStripMenuItem
             // 
             this.exceçõesToolStripMenuItem.Name = "exceçõesToolStripMenuItem";
-            this.exceçõesToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.exceçõesToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.exceçõesToolStripMenuItem.Text = "Exceção";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(186, 6);
             // 
             // executarToolStripMenuItem
             // 
             this.executarToolStripMenuItem.Name = "executarToolStripMenuItem";
-            this.executarToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.executarToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.executarToolStripMenuItem.Text = "Executar";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(186, 6);
             // 
             // arquivosTemporariosToolStripMenuItem1
             // 
@@ -261,14 +267,19 @@
             // limparToolStripMenuItem1
             // 
             this.limparToolStripMenuItem1.Name = "limparToolStripMenuItem1";
-            this.limparToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.limparToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.limparToolStripMenuItem1.Text = "Limpar";
             this.limparToolStripMenuItem1.Click += new System.EventHandler(this.ClearTempFiles);
             // 
-            // toolStripSeparator3
+            // btnRemoveRoutine
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(186, 6);
+            this.btnRemoveRoutine.Location = new System.Drawing.Point(12, 46);
+            this.btnRemoveRoutine.Name = "btnRemoveRoutine";
+            this.btnRemoveRoutine.Size = new System.Drawing.Size(74, 23);
+            this.btnRemoveRoutine.TabIndex = 3;
+            this.btnRemoveRoutine.Text = "Excluir";
+            this.btnRemoveRoutine.UseVisualStyleBackColor = true;
+            this.btnRemoveRoutine.Click += new System.EventHandler(this.btnRemoveRoutine_Click);
             // 
             // Index
             // 
@@ -278,6 +289,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(934, 661);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.btnRemoveRoutine);
             this.Controls.Add(this.btnAddRoutine);
             this.Controls.Add(this.lstRoutine);
             this.Controls.Add(this.menuStrip1);
@@ -325,5 +337,6 @@
         private ToolStripMenuItem arquivosTemporariosToolStripMenuItem1;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripMenuItem limparToolStripMenuItem1;
+        private Button btnRemoveRoutine;
     }
 }

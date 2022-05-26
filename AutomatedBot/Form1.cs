@@ -41,6 +41,37 @@ namespace AutomatedBot
             this.Enabled = false;
         }
 
+        private void btnRemoveRoutine_Click(object sender, EventArgs e)
+        {
+            if (lstRoutine.SelectedItem != null)
+            {
+                Routine routine = JsonDb.GetRoutine(lstRoutine.SelectedItem.ToString());
+
+                var approve = MessageBox.Show($"Tem certeza que deseja excluir a rotina \"{routine.Name}\"? Essa ação não poderá ser desfeita", 
+                    "Excluir?", MessageBoxButtons.YesNo);
+
+                if (approve.ToString() == "Yes")
+                {
+                    bool verify = JsonDb.RemoveRoutine(routine.FileName);
+
+                    if (verify)
+                    {
+                        MessageBox.Show("Rotina excluida com sucesso", "Sucesso!", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Houve um erro ao Excluir a rotina: Rotina não encontrada ou falha ao tentar exclui-la", "Rotina não encontrada", MessageBoxButtons.OK);
+                    }
+                }
+
+                UpdateWindow();
+            }
+            else
+            {
+                MessageBox.Show("Selecione uma rotina para excluir", "Item Não Selecionado", MessageBoxButtons.OK);
+            }
+        }
+
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
              

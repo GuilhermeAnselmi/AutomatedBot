@@ -1,6 +1,7 @@
 ﻿using AutomatedBot.Engine.Model;
 using KlusterG.AutoGui;
 using KlusterG.AutoGui.InternalKeys;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
@@ -11,78 +12,104 @@ namespace AutomatedBot.Engine
         private Routine _routine;
         private Dictionary<string, string> _parameters;
         private bool Debug;
-        private string Stage;
+        private string StageBreak;
 
         private MarkConditional ConditionalValue;
+        private bool Loop;
 
-        public Engine(Routine routine, Dictionary<string, string> parameters, bool debug, string stage)
+        private string RoutineName;
+        private bool NextRoutine;
+
+        public Engine(Routine routine, Dictionary<string, string> parameters, bool debug, string stageBreak)
         {
             _routine = routine;
             _parameters = parameters;
             Debug = debug;
-            Stage = stage;
+            StageBreak = stageBreak;
 
             ConditionalValue = MarkConditional.None;
+            Loop = true;
+
+            RoutineName = _routine.Name;
+            NextRoutine = true;
         }
 
         public void Run()
         {
             try
             {
-                foreach (Stage stage in _routine.Stage)
+                while (NextRoutine)
                 {
-                    if (stage.MarkConditional == MarkConditional.None || ConditionalValue == MarkConditional.None ||
-                        (stage.MarkConditional == ConditionalValue))
+                    NextRoutine = false;
+
+                    foreach (Stage stage in _routine.Stage)
                     {
-                        switch (stage.Function)
+                        if (stage.MarkConditional == MarkConditional.None || ConditionalValue == MarkConditional.None ||
+                            (stage.MarkConditional == ConditionalValue))
                         {
-                            case "SimpleClick":
-                                SimpleClick(stage);
-                                break;
+                            switch (stage.Function)
+                            {
+                                case "SimpleClick":
+                                    SimpleClick(stage);
+                                    break;
 
-                            case "RightClick":
-                                RightClick(stage);
-                                break;
+                                case "RightClick":
+                                    RightClick(stage);
+                                    break;
 
-                            case "DoubleClick":
-                                DoubleClick(stage);
-                                break;
+                                case "DoubleClick":
+                                    DoubleClick(stage);
+                                    break;
 
-                            case "Write":
-                                Write(stage);
-                                break;
+                                case "Write":
+                                    Write(stage);
+                                    break;
 
-                            case "ClickKey":
-                                ClickKey(stage);
-                                break;
+                                case "ClickKey":
+                                    ClickKey(stage);
+                                    break;
 
-                            case "PressKey":
-                                PressKey(stage);
-                                break;
+                                case "PressKey":
+                                    PressKey(stage);
+                                    break;
 
-                            case "ReleaseKey":
-                                ReleaseKey(stage);
-                                break;
+                                case "ReleaseKey":
+                                    ReleaseKey(stage);
+                                    break;
 
-                            case "WaitColor":
-                                WaitColor(stage);
-                                break;
+                                case "WaitColor":
+                                    WaitColor(stage);
+                                    break;
 
-                            case "WaitColorCondition":
-                                WaitColorCondition(stage);
-                                break;
+                                case "WaitColorCondition":
+                                    WaitColorCondition(stage);
+                                    break;
 
-                            case "Condition":
-                                Condition(stage);
-                                break;
+                                case "Condition":
+                                    Condition(stage);
+                                    break;
 
-                            case "CommandLine":
-                                CommandLine(stage);
-                                break;
+                                case "CommandLine":
+                                    CommandLine(stage);
+                                    break;
 
-                            default:
-                                throw new EngineException("");
-                                break;
+                                default:
+                                    throw new EngineException("Function Not Exists");
+                                    break;
+                            }
+                        }
+
+                        if (_routine.Name != RoutineName)
+                        {
+                            SetNewRoutine(RoutineName);
+
+                            ConditionalValue = MarkConditional.None;
+                            Loop = true;
+
+                            RoutineName = _routine.Name;
+                            NextRoutine = true;
+
+                            break;
                         }
                     }
                 }
@@ -147,7 +174,6 @@ namespace AutomatedBot.Engine
         {
             try
             {
-                Exec.Wait(2);
                 Exec.StartProcedure(stage.Procedure);
             }
             catch
@@ -184,7 +210,9 @@ namespace AutomatedBot.Engine
         {
             try
             {
-                while (true)
+                int count = 0;
+
+                while (Loop)
                 {
                     PixelColor color = Exec.GetPixelColor(stage.Procedure.Mouse.X, stage.Procedure.Mouse.Y);
 
@@ -192,7 +220,21 @@ namespace AutomatedBot.Engine
                         color.G == stage.PColor.G && 
                         color.B == stage.PColor.B && 
                         color.A == stage.PColor.A) break;
+
+                    if (stage.Timeout.RoutineTimeout != null && count == 0)
+                    {
+                        Timer(stage.Timeout.Timeout);
+                    }
+
+                    count++;
                 }
+
+                if (!Loop)
+                {
+                    RoutineName = stage.Timeout.RoutineTimeout;
+                }
+
+                Loop = true;
             }
             catch
             {
@@ -204,7 +246,84 @@ namespace AutomatedBot.Engine
         {
             try
             {
-                Exec.StartProcedure(stage.Procedure);
+                bool color1 = false, color2 = false, color3 = false;
+
+                int count = 0;
+
+                while (Loop)
+                {
+                    if (stage.ColorsCondition.Count >= 1)
+                    {
+                        PixelColor color = Exec.GetPixelColor(stage.ColorsCondition[0].X, stage.ColorsCondition[0].Y);
+
+                        if (color.R == stage.ColorsCondition[0].R &&
+                            color.G == stage.ColorsCondition[0].G &&
+                            color.B == stage.ColorsCondition[0].B &&
+                            color.A == stage.ColorsCondition[0].A)
+                        {
+                            color1 = true;
+
+                            break;
+                        }
+                    }
+
+                    if (stage.ColorsCondition.Count >= 2)
+                    {
+                        PixelColor color = Exec.GetPixelColor(stage.ColorsCondition[1].X, stage.ColorsCondition[1].Y);
+
+                        if (color.R == stage.ColorsCondition[1].R &&
+                            color.G == stage.ColorsCondition[1].G &&
+                            color.B == stage.ColorsCondition[1].B &&
+                            color.A == stage.ColorsCondition[1].A)
+                        {
+                            color2 = true;
+
+                            break;
+                        }
+                    }
+
+                    if (stage.ColorsCondition.Count >= 3)
+                    {
+                        PixelColor color = Exec.GetPixelColor(stage.ColorsCondition[2].X, stage.ColorsCondition[2].Y);
+
+                        if (color.R == stage.ColorsCondition[2].R &&
+                            color.G == stage.ColorsCondition[2].G &&
+                            color.B == stage.ColorsCondition[2].B &&
+                            color.A == stage.ColorsCondition[2].A)
+                        {
+                            color3 = true;
+
+                            break;
+                        }
+                    }
+
+                    if (stage.Timeout.RoutineTimeout != null && count == 0)
+                    {
+                        Timer(stage.Timeout.Timeout);
+                    }
+
+                    count++;
+                }
+
+                if (color1)
+                {
+                    RoutineName = stage.ColorsCondition[0].NextRoutine;
+                }
+                else if (color2)
+                {
+                    RoutineName = stage.ColorsCondition[1].NextRoutine;
+                }
+                else if (color3)
+                {
+                    RoutineName = stage.ColorsCondition[2].NextRoutine;
+                }
+
+                if (!Loop)
+                {
+                    RoutineName = stage.Timeout.RoutineTimeout;
+                }
+
+                Loop = true;
             }
             catch
             {
@@ -357,6 +476,8 @@ namespace AutomatedBot.Engine
         {
             try
             {
+                stage.CommandLine = RefactorText(stage.CommandLine);
+
                 Process.Start("cmd.exe", "/C " + stage.CommandLine);
             }
             catch
@@ -367,18 +488,37 @@ namespace AutomatedBot.Engine
 
         private string RefactorText(string text)
         {
-            Regex regex = new Regex(@"[?]+[a-zA-Z0-9]*");
+            Regex regex = new Regex(@"[?]+[a-zA-Z0-9]*[?]");
 
             MatchCollection match = regex.Matches(text);
 
             foreach (var item in match)
             {
-                string value = _parameters[item.ToString().Substring(1)];
+                string value = _parameters[item.ToString().Replace("?", "")];
 
                 text = text.Replace(item.ToString(), value);
             }
 
             return text;
+        }
+
+        private async Task Timer(int timeout)
+        {
+            await Task.Delay(timeout * 1000);
+
+            Loop = false;
+        }
+
+        private void SetNewRoutine(string routineName)
+        {
+            var files = Directory.GetFiles(Directory.GetCurrentDirectory() + "\\FilesJson\\");
+
+            foreach (var file in files)
+            {
+                Routine obj = JsonConvert.DeserializeObject<Routine>(File.ReadAllText(file));
+
+                if (obj.Name == routineName) _routine = obj;
+            }
         }
     }
 }

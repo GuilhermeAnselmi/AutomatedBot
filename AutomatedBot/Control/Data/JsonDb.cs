@@ -69,6 +69,27 @@ namespace AutomatedBot.Control.Data
             }
         }
 
+        public static bool RemoveRoutine(string fileName)
+        {
+
+
+            try
+            {
+                if (File.Exists(Path + fileName))
+                {
+                    File.Delete(Path + fileName);
+
+                    return true;
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public static List<Routine> GetAllRoutines()
         {
             List<Routine> routines = new List<Routine>();
