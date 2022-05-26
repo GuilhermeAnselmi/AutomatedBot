@@ -12,15 +12,7 @@ public class Program
         string routine = "";
         string json = "{";
 
-        string[] test = new string[3]
-        {
-            "Open WhatsApp",
-            "YourName:Gabrielle",
-            "Message:Eu te amo muito bb <3"
-        };
-
-
-        foreach (string arg in test)
+        foreach (string arg in args)
         {
             try
             {
@@ -44,9 +36,6 @@ public class Program
         }
 
         json += "}";
-
-        //routine = "Open WhatsApp";
-        //json = "{" + "\"YourName\":\"Gabrielle\",\"Message\":\"Eu te amo muito bb <3\"" + "}";
 
         if (!string.IsNullOrEmpty(routine))
         {
