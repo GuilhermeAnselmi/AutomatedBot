@@ -17,8 +17,7 @@ With this project, you can simulate keyboard and mouse as a routine dynamically 
 
 # Functions
 ## SimpleClick
-* 
-Makes a simple mouse click.
+* Makes a simple mouse click.
  
 ## DoubleClick
 * Double-click the mouse.
