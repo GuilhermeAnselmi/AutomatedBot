@@ -5,7 +5,7 @@ With this project, you can simulate keyboard and mouse as a routine dynamically 
 
 # Requirements
 * .NET Core v6.0
-* KlusterG.AutoGui v1.1.1
+* KlusterG.AutoGui v1.2.0
 * Newtonsoft.Json v13.0.1
 
 # Where to start?
