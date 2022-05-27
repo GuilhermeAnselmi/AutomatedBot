@@ -239,6 +239,8 @@ namespace AutomatedBot.Engine
                 }
 
                 Loop = true;
+
+                Exec.Wait(stage.Procedure.Wait);
             }
             catch
             {
@@ -330,6 +332,8 @@ namespace AutomatedBot.Engine
                 }
 
                 Loop = true;
+
+                Exec.Wait(stage.Procedure.Wait);
             }
             catch
             {
@@ -471,6 +475,8 @@ namespace AutomatedBot.Engine
                 {
                     ConditionalValue = MarkConditional.False;
                 }
+
+                Exec.Wait(stage.Procedure.Wait);
             }
             catch
             {
@@ -485,6 +491,8 @@ namespace AutomatedBot.Engine
                 stage.CommandLine = RefactorText(stage.CommandLine);
 
                 Process.Start("cmd.exe", "/C " + stage.CommandLine);
+
+                Exec.Wait(stage.Procedure.Wait);
             }
             catch
             {
