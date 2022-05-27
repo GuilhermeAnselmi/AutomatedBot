@@ -19,6 +19,7 @@ namespace AutomatedBot.Engine
 
         private string RoutineName;
         private bool NextRoutine;
+        private bool IsLooping;
 
         public Engine(Routine routine, Dictionary<string, string> parameters, bool debug, string stageBreak)
         {
@@ -32,6 +33,7 @@ namespace AutomatedBot.Engine
 
             RoutineName = _routine.Name;
             NextRoutine = true;
+            IsLooping = false;
         }
 
         public void Run()
@@ -210,7 +212,8 @@ namespace AutomatedBot.Engine
         {
             try
             {
-                int count = 0;
+                TimeSpan initialTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss.ffff"));
+                TimeSpan time;
 
                 while (Loop)
                 {
@@ -221,12 +224,13 @@ namespace AutomatedBot.Engine
                         color.B == stage.PColor.B && 
                         color.A == stage.PColor.A) break;
 
-                    if (stage.Timeout.RoutineTimeout != null && count == 0)
-                    {
-                        Timer(stage.Timeout.Timeout);
-                    }
+                    time = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss.ffff")) - initialTime;
 
-                    count++;
+                    if (Math.Round(time.TotalSeconds, 0) >= int.Parse(stage.Timeout.Timeout.ToString()) &&
+                        stage.Timeout.RoutineTimeout != null)
+                    {
+                        Loop = false;
+                    }
                 }
 
                 if (!Loop)
@@ -248,7 +252,8 @@ namespace AutomatedBot.Engine
             {
                 bool color1 = false, color2 = false, color3 = false;
 
-                int count = 0;
+                TimeSpan initialTime = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss.ffff"));
+                TimeSpan time;
 
                 while (Loop)
                 {
@@ -297,12 +302,13 @@ namespace AutomatedBot.Engine
                         }
                     }
 
-                    if (stage.Timeout.RoutineTimeout != null && count == 0)
-                    {
-                        Timer(stage.Timeout.Timeout);
-                    }
+                    time = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss.ffff")) - initialTime;
 
-                    count++;
+                    if (Math.Round(time.TotalSeconds, 0) >= int.Parse(stage.Timeout.Timeout.ToString()) &&
+                        stage.Timeout.RoutineTimeout != null)
+                    {
+                        Loop = false;
+                    }
                 }
 
                 if (color1)
@@ -506,7 +512,10 @@ namespace AutomatedBot.Engine
         {
             await Task.Delay(timeout * 1000);
 
-            Loop = false;
+            if (IsLooping)
+            {
+                Loop = false;
+            }
         }
 
         private void SetNewRoutine(string routineName)
