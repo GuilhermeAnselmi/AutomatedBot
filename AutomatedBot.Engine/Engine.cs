@@ -508,16 +508,6 @@ namespace AutomatedBot.Engine
             return text;
         }
 
-        private async Task Timer(int timeout)
-        {
-            await Task.Delay(timeout * 1000);
-
-            if (IsLooping)
-            {
-                Loop = false;
-            }
-        }
-
         private void SetNewRoutine(string routineName)
         {
             var files = Directory.GetFiles(Directory.GetCurrentDirectory() + "\\FilesJson\\");
